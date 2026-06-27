@@ -22,6 +22,7 @@ const PURPLE = "#A78BFA";
 const BG = "#06060C";
 const SURFACE = "#0C0C14";
 const MUTED = "#52526A";
+const BODY = "#ABABC8";
 const TEXT = "#EEEEF5";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
@@ -438,7 +439,7 @@ function HeroSection() {
             ))}
           </div>
 
-          <p ref={subRef} className="text-base leading-relaxed max-w-md mb-9" style={{ color: MUTED, opacity: 0 }}>
+          <p ref={subRef} className="text-base sm:text-lg leading-relaxed max-w-md mb-9" style={{ color: BODY, opacity: 0 }}>
             Front-End Developer specializing in the MERN stack — building responsive,
             user-friendly web applications with React, Next.js & modern web technologies.
           </p>
@@ -601,11 +602,11 @@ function AboutSection() {
           </div>
 
           <div className="abt-r opacity-0 space-y-6">
-            <p className="text-base leading-[1.85]" style={{ color: MUTED }}>
+            <p className="text-base sm:text-lg leading-[1.85]" style={{ color: BODY }}>
               I'm Md. Ridoy Hasan Kamrul — a Computer Science graduate (B.Sc in CSE, UITS, Dhaka, 2022)
               specializing in the MERN stack with a strong focus on frontend development.
             </p>
-            <p className="text-base leading-[1.85]" style={{ color: MUTED }}>
+            <p className="text-base sm:text-lg leading-[1.85]" style={{ color: BODY }}>
               I build responsive, user-friendly web applications that deliver exceptional user
               experiences. I thrive in both team and independent environments, bringing a
               problem-solving mindset and a passion for creating impactful digital solutions.
@@ -663,7 +664,7 @@ function SkillsSection() {
               <span style={{ color: LIME }}>master</span>{" "}
               every day
             </h2>
-            <p className="mt-5 text-base leading-relaxed" style={{ color: MUTED }}>
+            <p className="mt-5 text-base sm:text-lg leading-relaxed" style={{ color: BODY }}>
               My complete frontend toolkit — from React & Next.js to Tailwind & TypeScript.
               Built through real client work, internships & production projects.
             </p>
@@ -783,7 +784,7 @@ function ProjectsSection() {
                     <span style={{ color: MUTED, fontWeight: 400 }}>{p.sub}</span>{" "}
                     <span style={{ color: p.accent }}>↗</span>
                   </h3>
-                  <p className="mt-2.5 text-base max-w-xl leading-relaxed" style={{ color: MUTED }}>{p.desc}</p>
+                  <p className="mt-2.5 text-base sm:text-lg max-w-xl leading-relaxed" style={{ color: BODY }}>{p.desc}</p>
                 </div>
                 <div className="flex flex-wrap gap-2 flex-shrink-0">
                   {p.tags.map((t) => (
@@ -875,7 +876,7 @@ function ExperienceSection() {
               {/* Expandable desc */}
               {active === i && (
                 <div className="mt-5" style={{ paddingLeft: "calc(8.33% + 16px)" }}>
-                  <p className="text-base leading-relaxed" style={{ color: MUTED }}>{item.desc}</p>
+                  <p className="text-base sm:text-lg leading-relaxed" style={{ color: BODY }}>{item.desc}</p>
                 </div>
               )}
             </div>
@@ -942,7 +943,7 @@ function ContactSection() {
               something.
             </h2>
 
-            <p className="mt-8 text-base leading-relaxed" style={{ color: MUTED, maxWidth: 380 }}>
+            <p className="mt-8 text-base sm:text-lg leading-relaxed" style={{ color: BODY, maxWidth: 380 }}>
               Computer Science graduate specializing in MERN stack — available for freelance
               projects via Fiverr and open to full-time opportunities globally.
             </p>
