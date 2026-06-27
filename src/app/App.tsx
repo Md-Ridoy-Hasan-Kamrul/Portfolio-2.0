@@ -21,7 +21,6 @@ const MINT = "#4DFFA8";
 const PURPLE = "#A78BFA";
 const BG = "#06060C";
 const SURFACE = "#0C0C14";
-const MUTED = "#52526A";
 const BODY = "#ABABC8";
 const TEXT = "#EEEEF5";
 
@@ -314,7 +313,7 @@ function Navbar() {
           <span className="font-['Clash_Display'] font-semibold text-xl tracking-tight">
             <span style={{ color: LIME }}>M</span>R<span style={{ color: LIME }}>K</span>
           </span>
-          <span className="font-mono text-xs tracking-widest ml-1.5 hidden sm:block" style={{ color: MUTED }}>
+          <span className="font-mono text-xs tracking-widest ml-1.5 hidden sm:block" style={{ color: BODY }}>
             ridoy.dev
           </span>
         </button>
@@ -323,9 +322,9 @@ function Navbar() {
           {links.map((l) => (
             <button key={l} onClick={() => go(l)}
               className="text-sm font-medium capitalize tracking-wide transition-colors duration-200"
-              style={{ color: MUTED }}
+              style={{ color: BODY }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = TEXT; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = MUTED; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = BODY; }}
             >
               {l}
             </button>
@@ -350,7 +349,7 @@ function Navbar() {
       {open && (
         <div className="md:hidden px-4 sm:px-6 lg:px-8 py-5 flex flex-col gap-5 border-t" style={{ background: BG, borderColor: "rgba(255,255,255,0.05)" }}>
           {links.map((l) => (
-            <button key={l} onClick={() => go(l)} className="text-left text-sm capitalize" style={{ color: MUTED }}>{l}</button>
+            <button key={l} onClick={() => go(l)} className="text-left text-sm capitalize" style={{ color: BODY }}>{l}</button>
           ))}
         </div>
       )}
@@ -466,7 +465,7 @@ function HeroSection() {
             {[["3+", "Years exp."], ["9+", "Projects"], ["B.Sc", "CSE · UITS"]].map(([v, l]) => (
               <div key={l}>
                 <div className="font-['Clash_Display'] font-semibold text-3xl" style={{ color: TEXT }}>{v}</div>
-                <div className="text-xs mt-1" style={{ color: MUTED }}>{l}</div>
+                <div className="text-xs mt-1" style={{ color: BODY }}>{l}</div>
               </div>
             ))}
           </div>
@@ -521,7 +520,7 @@ function HeroSection() {
       {/* Scroll cue */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5">
         <div className="w-px h-11 animate-pulse" style={{ background: `linear-gradient(to bottom, ${LIME}70, transparent)` }} />
-        <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: MUTED }}>scroll</span>
+        <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: BODY }}>scroll</span>
       </div>
     </section>
   );
@@ -539,7 +538,7 @@ function MarqueeStrip() {
           {items.map((item) => (
             <div key={item} className="flex items-center gap-3 flex-none">
               <span className="w-1 h-1 rounded-full" style={{ background: LIME }} />
-              <span className="font-mono text-xs tracking-[0.28em] uppercase whitespace-nowrap" style={{ color: MUTED }}>
+              <span className="font-mono text-xs tracking-[0.28em] uppercase whitespace-nowrap" style={{ color: BODY }}>
                 {item}
               </span>
             </div>
@@ -582,7 +581,7 @@ function AboutSection() {
               {[["3+", "Years"], ["9+", "Projects"], ["UITS", "B.Sc CSE"]].map(([v, l]) => (
                 <div key={l} className="p-5 rounded-2xl" style={{ background: SURFACE, border: "1px solid rgba(255,255,255,0.05)" }}>
                   <div className="font-['Clash_Display'] font-semibold text-3xl" style={{ color: LIME }}>{v}</div>
-                  <div className="text-xs mt-1.5" style={{ color: MUTED }}>{l}</div>
+                  <div className="text-xs mt-1.5" style={{ color: BODY }}>{l}</div>
                 </div>
               ))}
             </div>
@@ -674,7 +673,7 @@ function SkillsSection() {
               {[["Frontend", "#61DAFB"], ["Backend", "#8CC84B"], ["Creative", "#F24E1E"], ["Tools", "#F05032"]].map(([cat, col]) => (
                 <div key={cat} className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full" style={{ background: col }} />
-                  <span className="font-mono text-xs tracking-widest uppercase" style={{ color: MUTED }}>{cat}</span>
+                  <span className="font-mono text-xs tracking-widest uppercase" style={{ color: BODY }}>{cat}</span>
                 </div>
               ))}
             </div>
@@ -737,7 +736,7 @@ function ProjectsSection() {
         <div className="flex items-center gap-5 mb-24">
           <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: LIME }}>04 / Projects</span>
           <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
-          <span className="font-mono text-xs" style={{ color: MUTED }}>Selected Work</span>
+          <span className="font-mono text-xs" style={{ color: BODY }}>Selected Work</span>
         </div>
 
         <div className="space-y-5">
@@ -777,11 +776,11 @@ function ProjectsSection() {
                 <div>
                   <div className="flex items-center gap-3 mb-2">
                     <span className="font-mono text-xs tracking-widest" style={{ color: p.accent }}>{p.num}</span>
-                    <span className="font-mono text-xs" style={{ color: MUTED }}>{p.caption}</span>
+                    <span className="font-mono text-xs" style={{ color: BODY }}>{p.caption}</span>
                   </div>
                   <h3 className="font-['Clash_Display'] font-semibold text-xl sm:text-2xl lg:text-3xl" style={{ color: TEXT }}>
                     {p.title}{" "}
-                    <span style={{ color: MUTED, fontWeight: 400 }}>{p.sub}</span>{" "}
+                    <span style={{ color: BODY, fontWeight: 400 }}>{p.sub}</span>{" "}
                     <span style={{ color: p.accent }}>↗</span>
                   </h3>
                   <p className="mt-2.5 text-base sm:text-lg max-w-xl leading-relaxed" style={{ color: BODY }}>{p.desc}</p>
@@ -847,7 +846,7 @@ function ExperienceSection() {
                 {/* Role + Company */}
                 <div className="col-span-12 sm:col-span-4">
                   <div className="font-mono text-xs tracking-widest mb-1 transition-colors duration-300"
-                    style={{ color: active === i ? item.color : MUTED }}>
+                    style={{ color: active === i ? item.color : BODY }}>
                     {item.company}
                   </div>
                   <h3 className="font-['Clash_Display'] font-semibold text-lg" style={{ color: TEXT }}>{item.role}</h3>
@@ -855,7 +854,7 @@ function ExperienceSection() {
 
                 {/* Period */}
                 <div className="col-span-6 sm:col-span-2">
-                  <span className="font-mono text-xs" style={{ color: MUTED }}>{item.period}</span>
+                  <span className="font-mono text-xs" style={{ color: BODY }}>{item.period}</span>
                 </div>
 
                 {/* Stats */}
@@ -864,7 +863,7 @@ function ExperienceSection() {
                     <span key={s} className="px-2.5 py-1 rounded-md font-mono text-xs transition-all duration-300"
                       style={{
                         background: active === i ? `${item.color}12` : "rgba(255,255,255,0.04)",
-                        color: active === i ? item.color : MUTED,
+                        color: active === i ? item.color : BODY,
                         border: `1px solid ${active === i ? item.color + "22" : "rgba(255,255,255,0.04)"}`,
                       }}>
                       {s}
@@ -886,9 +885,9 @@ function ExperienceSection() {
         {/* CV link */}
         <div className="mt-10 flex justify-start pl-[calc(8.33%+28px)]">
           <a href={cvPdf} download="Md_Ridoy_Hasan_Kamrul_CV.pdf" className="flex items-center gap-2 text-sm transition-all duration-300 group"
-            style={{ color: MUTED }}
+            style={{ color: BODY }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = TEXT; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = MUTED; }}>
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = BODY; }}>
             Download full résumé
             <FiArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </a>
@@ -960,7 +959,7 @@ function ContactSection() {
                     <Icon className="w-3.5 h-3.5" style={{ color: LIME }} />
                   </div>
                   <div>
-                    <div className="font-mono text-xs tracking-widest uppercase mb-0.5" style={{ color: MUTED }}>{label}</div>
+                    <div className="font-mono text-xs tracking-widest uppercase mb-0.5" style={{ color: BODY }}>{label}</div>
                     {href ? (
                       <a href={href}
                         target="_blank"
@@ -986,7 +985,7 @@ function ContactSection() {
             <div className="grid sm:grid-cols-2 gap-5">
               {[["name", "Name", "Your name"], ["email", "Email", "you@company.com"]].map(([key, lbl, ph]) => (
                 <div key={key}>
-                  <label className="block font-mono text-xs tracking-widest uppercase mb-2" style={{ color: MUTED }}>{lbl}</label>
+                  <label className="block font-mono text-xs tracking-widest uppercase mb-2" style={{ color: BODY }}>{lbl}</label>
                   <input
                     type={key === "email" ? "email" : "text"}
                     value={form[key as keyof typeof form]}
@@ -1001,7 +1000,7 @@ function ContactSection() {
               ))}
             </div>
             <div>
-              <label className="block font-mono text-xs tracking-widest uppercase mb-2" style={{ color: MUTED }}>Message</label>
+              <label className="block font-mono text-xs tracking-widest uppercase mb-2" style={{ color: BODY }}>Message</label>
               <textarea
                 rows={5}
                 value={form.message}
