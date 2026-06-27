@@ -145,7 +145,7 @@ export function HeroSection() {
               { icon: SiTailwindcss,label: "Tailwind",   color: "#06B6D4", cls: "top-14 -right-20" },
               { icon: SiTypescript, label: "TypeScript",  color: "#3178C6", cls: "bottom-24 -right-24" },
             ].map(({ icon: Icon, label, color, cls }) => (
-              <div key={label} className={`h-badge absolute ${cls} hidden xl:flex items-center gap-2 px-3 py-2 rounded-xl`}
+              <div key={label} className={`h-badge absolute ${cls} hidden 2xl:flex items-center gap-2 px-3 py-2 rounded-xl`}
                 style={{ background: SURFACE, border: "1px solid rgba(255,255,255,0.07)", backdropFilter: "blur(8px)", opacity: 0 }}>
                 <Icon style={{ color }} className="w-3.5 h-3.5 flex-shrink-0" />
                 <span className="font-mono text-xs" style={{ color: TEXT }}>{label}</span>
