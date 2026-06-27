@@ -162,11 +162,11 @@ function LoadingScreen({ onDone }: { onDone: () => void }) {
 
       {/* Title + location */}
       <div ref={subtitleRef} className="flex items-center gap-3" style={{ opacity: 0 }}>
-        <span className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: MUTED }}>
+        <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: MUTED }}>
           Front-End Developer
         </span>
         <span style={{ color: LIME, fontSize: 10 }}>·</span>
-        <span className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: MUTED }}>
+        <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: MUTED }}>
           Dhaka, Bangladesh
         </span>
       </div>
@@ -314,7 +314,7 @@ function Navbar() {
           <span className="font-['Clash_Display'] font-semibold text-xl tracking-tight">
             <span style={{ color: LIME }}>M</span>R<span style={{ color: LIME }}>K</span>
           </span>
-          <span className="font-mono text-[10px] tracking-widest ml-1.5 hidden sm:block" style={{ color: MUTED }}>
+          <span className="font-mono text-xs tracking-widest ml-1.5 hidden sm:block" style={{ color: MUTED }}>
             ridoy.dev
           </span>
         </button>
@@ -411,7 +411,7 @@ function HeroSection() {
           {/* Availability badge */}
           <div className="flex items-center gap-3 mb-12">
             <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: LIME }} />
-            <span className="font-mono text-[10px] tracking-[0.32em] uppercase" style={{ color: MUTED }}>
+            <span className="font-mono text-xs tracking-[0.32em] uppercase" style={{ color: MUTED }}>
               Available for freelance · Dhaka, Bangladesh
             </span>
           </div>
@@ -511,7 +511,7 @@ function HeroSection() {
               <div key={label} className={`h-badge absolute ${cls} hidden lg:flex items-center gap-2 px-3 py-2 rounded-xl`}
                 style={{ background: SURFACE, border: "1px solid rgba(255,255,255,0.07)", backdropFilter: "blur(8px)", opacity: 0 }}>
                 <Icon style={{ color }} className="w-3.5 h-3.5 flex-shrink-0" />
-                <span className="font-mono text-[11px]" style={{ color: TEXT }}>{label}</span>
+                <span className="font-mono text-xs" style={{ color: TEXT }}>{label}</span>
               </div>
             ))}
           </div>
@@ -521,7 +521,7 @@ function HeroSection() {
       {/* Scroll cue */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5">
         <div className="w-px h-11 animate-pulse" style={{ background: `linear-gradient(to bottom, ${LIME}70, transparent)` }} />
-        <span className="font-mono text-[9px] tracking-[0.35em] uppercase" style={{ color: MUTED }}>scroll</span>
+        <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: MUTED }}>scroll</span>
       </div>
     </section>
   );
@@ -539,7 +539,7 @@ function MarqueeStrip() {
           {items.map((item) => (
             <div key={item} className="flex items-center gap-3 flex-none">
               <span className="w-1 h-1 rounded-full" style={{ background: LIME }} />
-              <span className="font-mono text-[10px] tracking-[0.28em] uppercase whitespace-nowrap" style={{ color: MUTED }}>
+              <span className="font-mono text-xs tracking-[0.28em] uppercase whitespace-nowrap" style={{ color: MUTED }}>
                 {item}
               </span>
             </div>
@@ -567,7 +567,7 @@ function AboutSection() {
     <section ref={sRef} id="about" className="py-36 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-5 mb-24">
-          <span className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: LIME }}>02 / About</span>
+          <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: LIME }}>02 / About</span>
           <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
         </div>
 
@@ -595,7 +595,7 @@ function AboutSection() {
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
                   <span className="w-1 h-1 rounded-full flex-shrink-0 mt-2" style={{ background: LIME }} />
-                  <span className="text-sm leading-relaxed" style={{ color: MUTED }}>{item}</span>
+                  <span className="text-base leading-relaxed" style={{ color: BODY }}>{item}</span>
                 </div>
               ))}
             </div>
@@ -620,10 +620,10 @@ function AboutSection() {
                 { year: "2014", degree: "S.S.C", school: "Govt. Kalachandpur High School & College" },
               ].map((e) => (
                 <div key={e.year} className="flex items-start gap-4">
-                  <span className="font-mono text-[10px] tracking-widest flex-shrink-0 mt-0.5" style={{ color: LIME }}>{e.year}</span>
+                  <span className="font-mono text-xs tracking-widest flex-shrink-0 mt-0.5" style={{ color: LIME }}>{e.year}</span>
                   <div>
-                    <span className="text-sm font-medium" style={{ color: TEXT }}>{e.degree}</span>
-                    <span className="text-sm" style={{ color: MUTED }}> — {e.school}</span>
+                    <span className="text-base font-medium" style={{ color: TEXT }}>{e.degree}</span>
+                    <span className="text-base" style={{ color: BODY }}> — {e.school}</span>
                   </div>
                 </div>
               ))}
@@ -653,7 +653,7 @@ function SkillsSection() {
     <section ref={sRef} id="skills" className="py-36 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-5 mb-24">
-          <span className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: LIME }}>03 / Skills</span>
+          <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: LIME }}>03 / Skills</span>
           <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
         </div>
 
@@ -674,7 +674,7 @@ function SkillsSection() {
               {[["Frontend", "#61DAFB"], ["Backend", "#8CC84B"], ["Creative", "#F24E1E"], ["Tools", "#F05032"]].map(([cat, col]) => (
                 <div key={cat} className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full" style={{ background: col }} />
-                  <span className="font-mono text-[10px] tracking-widest uppercase" style={{ color: MUTED }}>{cat}</span>
+                  <span className="font-mono text-xs tracking-widest uppercase" style={{ color: MUTED }}>{cat}</span>
                 </div>
               ))}
             </div>
@@ -706,7 +706,7 @@ function SkillsSection() {
                   }}
                 >
                   <skill.icon style={{ color: skill.color }} className="w-3.5 h-3.5 flex-shrink-0" />
-                  <span className="font-mono text-[11px]" style={{ color: TEXT }}>{skill.name}</span>
+                  <span className="font-mono text-xs" style={{ color: TEXT }}>{skill.name}</span>
                 </div>
               </div>
             ))}
@@ -735,9 +735,9 @@ function ProjectsSection() {
     <section ref={sRef} id="projects" className="py-36 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-5 mb-24">
-          <span className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: LIME }}>04 / Projects</span>
+          <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: LIME }}>04 / Projects</span>
           <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
-          <span className="font-mono text-[10px]" style={{ color: MUTED }}>Selected Work</span>
+          <span className="font-mono text-xs" style={{ color: MUTED }}>Selected Work</span>
         </div>
 
         <div className="space-y-5">
@@ -776,8 +776,8 @@ function ProjectsSection() {
               <div className="p-7 flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div>
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="font-mono text-[10px] tracking-widest" style={{ color: p.accent }}>{p.num}</span>
-                    <span className="font-mono text-[10px]" style={{ color: MUTED }}>{p.caption}</span>
+                    <span className="font-mono text-xs tracking-widest" style={{ color: p.accent }}>{p.num}</span>
+                    <span className="font-mono text-xs" style={{ color: MUTED }}>{p.caption}</span>
                   </div>
                   <h3 className="font-['Clash_Display'] font-semibold text-xl sm:text-2xl lg:text-3xl" style={{ color: TEXT }}>
                     {p.title}{" "}
@@ -788,7 +788,7 @@ function ProjectsSection() {
                 </div>
                 <div className="flex flex-wrap gap-2 flex-shrink-0">
                   {p.tags.map((t) => (
-                    <span key={t} className="px-2.5 py-1 rounded-md font-mono text-[10px]"
+                    <span key={t} className="px-2.5 py-1 rounded-md font-mono text-xs"
                       style={{ background: `${p.accent}12`, color: p.accent, border: `1px solid ${p.accent}22` }}>
                       {t}
                     </span>
@@ -820,7 +820,7 @@ function ExperienceSection() {
     <section ref={sRef} id="experience" className="py-36 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-5 mb-24">
-          <span className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: LIME }}>05 / Experience</span>
+          <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: LIME }}>05 / Experience</span>
           <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
         </div>
 
@@ -846,7 +846,7 @@ function ExperienceSection() {
 
                 {/* Role + Company */}
                 <div className="col-span-12 sm:col-span-4">
-                  <div className="font-mono text-[10px] tracking-widest mb-1 transition-colors duration-300"
+                  <div className="font-mono text-xs tracking-widest mb-1 transition-colors duration-300"
                     style={{ color: active === i ? item.color : MUTED }}>
                     {item.company}
                   </div>
@@ -861,7 +861,7 @@ function ExperienceSection() {
                 {/* Stats */}
                 <div className="col-span-6 sm:col-span-5 flex flex-wrap gap-2 justify-end">
                   {item.stats.map((s) => (
-                    <span key={s} className="px-2.5 py-1 rounded-md font-mono text-[10px] transition-all duration-300"
+                    <span key={s} className="px-2.5 py-1 rounded-md font-mono text-xs transition-all duration-300"
                       style={{
                         background: active === i ? `${item.color}12` : "rgba(255,255,255,0.04)",
                         color: active === i ? item.color : MUTED,
@@ -934,7 +934,7 @@ function ContactSection() {
         <div className="ct-inner opacity-0 grid lg:grid-cols-2 gap-20 items-start">
           {/* Left — Large CTA */}
           <div>
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: LIME }}>06 / Contact</span>
+            <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: LIME }}>06 / Contact</span>
             <h2 className="font-['Clash_Display'] font-semibold mt-6 leading-[0.9] text-5xl sm:text-6xl md:text-7xl lg:text-8xl" style={{ color: TEXT }}>
               Let's
               <br />
@@ -960,7 +960,7 @@ function ContactSection() {
                     <Icon className="w-3.5 h-3.5" style={{ color: LIME }} />
                   </div>
                   <div>
-                    <div className="font-mono text-[9px] tracking-widest uppercase mb-0.5" style={{ color: MUTED }}>{label}</div>
+                    <div className="font-mono text-xs tracking-widest uppercase mb-0.5" style={{ color: MUTED }}>{label}</div>
                     {href ? (
                       <a href={href}
                         target="_blank"
@@ -986,7 +986,7 @@ function ContactSection() {
             <div className="grid sm:grid-cols-2 gap-5">
               {[["name", "Name", "Your name"], ["email", "Email", "you@company.com"]].map(([key, lbl, ph]) => (
                 <div key={key}>
-                  <label className="block font-mono text-[10px] tracking-widest uppercase mb-2" style={{ color: MUTED }}>{lbl}</label>
+                  <label className="block font-mono text-xs tracking-widest uppercase mb-2" style={{ color: MUTED }}>{lbl}</label>
                   <input
                     type={key === "email" ? "email" : "text"}
                     value={form[key as keyof typeof form]}
@@ -1001,7 +1001,7 @@ function ContactSection() {
               ))}
             </div>
             <div>
-              <label className="block font-mono text-[10px] tracking-widest uppercase mb-2" style={{ color: MUTED }}>Message</label>
+              <label className="block font-mono text-xs tracking-widest uppercase mb-2" style={{ color: MUTED }}>Message</label>
               <textarea
                 rows={5}
                 value={form.message}
@@ -1030,14 +1030,23 @@ function ContactSection() {
 // ─── Footer ───────────────────────────────────────────────────────────────────
 
 function Footer() {
+  const sRef = useRef<HTMLElement>(null);
   const links = [
     { icon: FiGithub, href: "#", label: "GitHub" },
     { icon: FaLinkedinIn, href: "https://linkedin.com/in/md-ridoy-hasan-kamrul", label: "LinkedIn" },
     { icon: FaTwitter, href: "#", label: "Twitter" },
   ];
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(".ft-inner", { opacity: 0, y: 64 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: sRef.current, start: "top 95%", once: true } });
+    }, sRef);
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <footer className="py-8" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer ref={sRef} className="py-8" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      <div className="ft-inner opacity-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top row: logo + social icons centered */}
         <div className="flex flex-col items-center gap-4 mb-6">
           {/* Logo */}
@@ -1045,7 +1054,7 @@ function Footer() {
             <div className="font-['Clash_Display'] font-semibold text-2xl tracking-tight" style={{ color: TEXT }}>
               <span style={{ color: LIME }}>M</span>R<span style={{ color: LIME }}>K</span>
             </div>
-            <div className="font-mono text-[10px] tracking-[0.25em] uppercase" style={{ color: MUTED }}>
+            <div className="font-mono text-xs tracking-[0.25em] uppercase" style={{ color: MUTED }}>
               Md. Ridoy Hasan Kamrul
             </div>
           </div>
@@ -1064,13 +1073,13 @@ function Footer() {
         </div>
         {/* Bottom row: copyright */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-2 pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-          <p className="font-mono text-[10px] tracking-widest uppercase" style={{ color: MUTED }}>
+          <p className="font-mono text-xs tracking-widest uppercase" style={{ color: MUTED }}>
             Front-End Developer · MERN Stack
           </p>
           <p className="text-xs" style={{ color: MUTED }}>
             © {new Date().getFullYear()} Md. Ridoy Hasan Kamrul. All rights reserved.
           </p>
-          <p className="font-mono text-[10px]" style={{ color: MUTED }}>
+          <p className="font-mono text-xs" style={{ color: MUTED }}>
             Built with React & TypeScript
           </p>
         </div>
