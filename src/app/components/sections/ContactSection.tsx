@@ -32,7 +32,7 @@ export function ContactSection() {
   };
 
   return (
-    <section ref={sRef} id="contact" className="py-16 sm:py-24 lg:py-28 2xl:py-36 relative">
+    <section ref={sRef} id="contact" className="relative" style={{ paddingTop: "clamp(4rem, 3rem + 5vw, 9rem)", paddingBottom: "clamp(4rem, 3rem + 5vw, 9rem)" }}>
       <div className="absolute top-0 inset-x-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${LIME}25, transparent)` }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

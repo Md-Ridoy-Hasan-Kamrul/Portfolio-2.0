@@ -17,9 +17,9 @@ export function ExperienceSection() {
   }, []);
 
   return (
-    <section ref={sRef} id="experience" className="py-16 sm:py-24 lg:py-28 2xl:py-36 relative">
+    <section ref={sRef} id="experience" className="relative" style={{ paddingTop: "clamp(4rem, 3rem + 5vw, 9rem)", paddingBottom: "clamp(4rem, 3rem + 5vw, 9rem)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-5 mb-10 sm:mb-16 lg:mb-20 2xl:mb-24">
+        <div className="flex items-center gap-5" style={{ marginBottom: "clamp(2.5rem, 1.7rem + 3.6vw, 6rem)" }}>
           <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: LIME }}>05 / Experience</span>
           <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
         </div>
