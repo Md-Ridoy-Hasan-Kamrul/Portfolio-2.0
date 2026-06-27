@@ -50,7 +50,7 @@ export function HeroSection() {
         backgroundSize: "80px 80px",
       }} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid lg:grid-cols-12 gap-6 items-center pt-28 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid lg:grid-cols-12 gap-6 items-center pt-24 pb-12 sm:pt-28 sm:pb-20">
         <div className="col-span-12 lg:col-span-7">
           <div className="flex items-center gap-3 mb-12">
             <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: LIME }} />

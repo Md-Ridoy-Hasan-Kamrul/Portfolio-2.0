@@ -9,6 +9,7 @@ export function useFooterReveal() {
   const footerRef = useRef<HTMLElement>(null);
   const footerEndRef = useRef<HTMLDivElement>(null);
   const [footerHeight, setFooterHeight] = useState(0);
+  const [footerVisible, setFooterVisible] = useState(false);
 
   useEffect(() => {
     const el = footerRef.current;
@@ -31,12 +32,12 @@ export function useFooterReveal() {
       ScrollTrigger.create({
         trigger: footerEndRef.current,
         start: "bottom bottom",
-        onEnter: () => gsap.to(footerRef.current, { yPercent: 0, opacity: 1, duration: 0.7, ease: "power3.out" }),
-        onLeaveBack: () => gsap.to(footerRef.current, { yPercent: 28, opacity: 0, duration: 0.55, ease: "power3.in" }),
+        onEnter: () => { gsap.to(footerRef.current, { yPercent: 0, opacity: 1, duration: 0.7, ease: "power3.out" }); setFooterVisible(true); },
+        onLeaveBack: () => { gsap.to(footerRef.current, { yPercent: 28, opacity: 0, duration: 0.55, ease: "power3.in" }); setFooterVisible(false); },
       });
     });
     return () => ctx.revert();
   }, []);
 
-  return { footerRef, footerEndRef, footerHeight };
+  return { footerRef, footerEndRef, footerHeight, footerVisible };
 }

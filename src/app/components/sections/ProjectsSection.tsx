@@ -17,9 +17,9 @@ export function ProjectsSection() {
   }, []);
 
   return (
-    <section ref={sRef} id="projects" className="py-36 relative">
+    <section ref={sRef} id="projects" className="py-16 sm:py-24 lg:py-36 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-5 mb-24">
+        <div className="flex items-center gap-5 mb-10 sm:mb-16 lg:mb-24">
           <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: LIME }}>04 / Projects</span>
           <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
           <span className="font-mono text-xs" style={{ color: BODY }}>Selected Work</span>

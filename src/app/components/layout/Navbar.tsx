@@ -76,13 +76,22 @@ export function Navbar() {
         </button>
       </div>
 
-      {open && (
-        <div className="md:hidden px-4 sm:px-6 lg:px-8 py-5 flex flex-col gap-5 border-t" style={{ background: BG, borderColor: "rgba(255,255,255,0.05)" }}>
-          {links.map((l) => (
-            <button key={l} onClick={() => go(l)} className="text-left text-sm capitalize" style={{ color: BODY }}>{l}</button>
-          ))}
+      <div
+        className="md:hidden grid"
+        style={{ gridTemplateRows: open ? "1fr" : "0fr", transition: "grid-template-rows 300ms ease" }}
+      >
+        <div style={{ overflow: "hidden", minHeight: 0 }}>
+          <div className="px-4 sm:px-6 lg:px-8 py-5 flex flex-col gap-5 border-t" style={{ background: BG, borderColor: "rgba(255,255,255,0.05)" }}>
+            {links.map((l) => (
+              <button key={l} onClick={() => go(l)}
+                className="text-left text-sm capitalize transition-opacity duration-200"
+                style={{ color: BODY, opacity: open ? 1 : 0 }}>
+                {l}
+              </button>
+            ))}
+          </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

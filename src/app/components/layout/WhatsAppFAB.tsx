@@ -4,14 +4,25 @@ import { FaWhatsapp } from "react-icons/fa";
 import { SURFACE, TEXT } from "../../constants/theme";
 import { WHATSAPP_HREF } from "../../constants/site";
 
-export function WhatsAppFAB() {
+export function WhatsAppFAB({ hideForFooter = false }: { hideForFooter?: boolean }) {
   const [hovered, setHovered] = useState(false);
   const fabRef = useRef<HTMLAnchorElement>(null);
+  const enteredRef = useRef(false);
 
   useEffect(() => {
     if (!fabRef.current) return;
-    gsap.fromTo(fabRef.current, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.7)", delay: 3 });
+    gsap.fromTo(fabRef.current, { scale: 0, opacity: 0 }, {
+      scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.7)", delay: 3,
+      onComplete: () => { enteredRef.current = true; },
+    });
   }, []);
+
+  useEffect(() => {
+    const el = fabRef.current;
+    if (!el || !enteredRef.current) return;
+    gsap.to(el, { opacity: hideForFooter ? 0 : 1, scale: hideForFooter ? 0.7 : 1, duration: 0.3, ease: "power2.out" });
+    el.style.pointerEvents = hideForFooter ? "none" : "auto";
+  }, [hideForFooter]);
 
   return (
     <a

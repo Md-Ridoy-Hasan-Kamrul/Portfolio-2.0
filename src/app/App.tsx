@@ -19,7 +19,7 @@ import { ContactSection } from "./components/sections/ContactSection";
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
-  const { footerRef, footerEndRef, footerHeight } = useFooterReveal();
+  const { footerRef, footerEndRef, footerHeight, footerVisible } = useFooterReveal();
 
   useEffect(() => {
     document.documentElement.classList.add("dark");
@@ -45,7 +45,7 @@ export default function App() {
       <Toaster />
       <SocialSidebar />
       <Navbar />
-      <WhatsAppFAB />
+      <WhatsAppFAB hideForFooter={footerVisible} />
       <main className="relative z-10" style={{ background: BG, marginBottom: footerHeight }}>
         <HeroSection />
         <MarqueeStrip />
