@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { LIME, SURFACE, TEXT, BODY } from "../../constants/theme";
+import { useSectionSpacing } from "../../hooks/useSectionSpacing";
 
 export function AboutSection() {
   const sRef = useRef<HTMLElement>(null);
+  const { py, mb } = useSectionSpacing();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -14,9 +16,9 @@ export function AboutSection() {
   }, []);
 
   return (
-    <section ref={sRef} id="about" className="relative" style={{ paddingTop: "clamp(4rem, 3rem + 5vw, 9rem)", paddingBottom: "clamp(4rem, 3rem + 5vw, 9rem)" }}>
+    <section ref={sRef} id="about" className="relative" style={{ paddingTop: py, paddingBottom: py }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-5" style={{ marginBottom: "clamp(2.5rem, 1.7rem + 3.6vw, 6rem)" }}>
+        <div className="flex items-center gap-5" style={{ marginBottom: mb }}>
           <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: LIME }}>02 / About</span>
           <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
         </div>

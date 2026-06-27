@@ -4,10 +4,12 @@ import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 import { toast } from "../common/Toast";
 import { BG, LIME, SURFACE, TEXT, BODY } from "../../constants/theme";
 import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, CONTACT_PHONE, CONTACT_PHONE_HREF, CONTACT_LOCATION } from "../../constants/site";
+import { useSectionSpacing } from "../../hooks/useSectionSpacing";
 
 export function ContactSection() {
   const sRef = useRef<HTMLElement>(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const { py } = useSectionSpacing();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -32,7 +34,7 @@ export function ContactSection() {
   };
 
   return (
-    <section ref={sRef} id="contact" className="relative" style={{ paddingTop: "clamp(4rem, 3rem + 5vw, 9rem)", paddingBottom: "clamp(4rem, 3rem + 5vw, 9rem)" }}>
+    <section ref={sRef} id="contact" className="relative" style={{ paddingTop: py, paddingBottom: py }}>
       <div className="absolute top-0 inset-x-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${LIME}25, transparent)` }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
