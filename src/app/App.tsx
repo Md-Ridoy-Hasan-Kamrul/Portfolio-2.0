@@ -260,9 +260,9 @@ function SocialSidebar() {
         {links.map(({ icon: Icon, href, label }) => (
           <a key={label} href={href} aria-label={label}
             className="transition-all duration-300 hover:-translate-y-0.5"
-            style={{ color: MUTED, opacity: 0 }}
+            style={{ color: BODY, opacity: 0 }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = TEXT; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = MUTED; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = BODY; }}
           >
             <Icon className="w-[15px] h-[15px]" />
           </a>
@@ -1029,24 +1029,20 @@ function ContactSection() {
 
 // ─── Footer ───────────────────────────────────────────────────────────────────
 
-function Footer() {
-  const sRef = useRef<HTMLElement>(null);
+function Footer({ footerRef }: { footerRef: React.RefObject<HTMLElement> }) {
   const links = [
     { icon: FiGithub, href: "#", label: "GitHub" },
     { icon: FaLinkedinIn, href: "https://linkedin.com/in/md-ridoy-hasan-kamrul", label: "LinkedIn" },
     { icon: FaTwitter, href: "#", label: "Twitter" },
   ];
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(".ft-inner", { opacity: 0, y: 64 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: sRef.current, start: "top 95%", once: true } });
-    }, sRef);
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <footer ref={sRef} className="py-8" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-      <div className="ft-inner opacity-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer
+      ref={footerRef}
+      className="fixed bottom-0 inset-x-0 z-0 py-8"
+      style={{ background: BG, borderTop: "1px solid rgba(255,255,255,0.07)" }}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top row: logo + social icons centered */}
         <div className="flex flex-col items-center gap-4 mb-6">
           {/* Logo */}
@@ -1054,7 +1050,7 @@ function Footer() {
             <div className="font-['Clash_Display'] font-semibold text-2xl tracking-tight" style={{ color: TEXT }}>
               <span style={{ color: LIME }}>M</span>R<span style={{ color: LIME }}>K</span>
             </div>
-            <div className="font-mono text-xs tracking-[0.25em] uppercase" style={{ color: MUTED }}>
+            <div className="font-mono text-xs tracking-[0.25em] uppercase" style={{ color: BODY }}>
               Md. Ridoy Hasan Kamrul
             </div>
           </div>
@@ -1063,9 +1059,9 @@ function Footer() {
             {links.map(({ icon: Icon, href, label }) => (
               <a key={label} href={href} aria-label={label}
                 className="transition-all duration-300 hover:-translate-y-0.5"
-                style={{ color: MUTED }}
+                style={{ color: BODY }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = LIME; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = MUTED; }}>
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = BODY; }}>
                 <Icon className="w-4 h-4" />
               </a>
             ))}
@@ -1073,13 +1069,13 @@ function Footer() {
         </div>
         {/* Bottom row: copyright */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-2 pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-          <p className="font-mono text-xs tracking-widest uppercase" style={{ color: MUTED }}>
+          <p className="font-mono text-xs tracking-widest uppercase" style={{ color: BODY }}>
             Front-End Developer · MERN Stack
           </p>
-          <p className="text-xs" style={{ color: MUTED }}>
+          <p className="text-xs" style={{ color: BODY }}>
             © {new Date().getFullYear()} Md. Ridoy Hasan Kamrul. All rights reserved.
           </p>
-          <p className="font-mono text-xs" style={{ color: MUTED }}>
+          <p className="font-mono text-xs" style={{ color: BODY }}>
             Built with React & TypeScript
           </p>
         </div>
@@ -1138,6 +1134,19 @@ function WhatsAppFAB() {
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
+  const footerRef = useRef<HTMLElement>(null);
+  const [footerHeight, setFooterHeight] = useState(0);
+
+  useEffect(() => {
+    const el = footerRef.current;
+    if (!el) return;
+    const update = () => setFooterHeight(el.offsetHeight);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    window.addEventListener("resize", update);
+    return () => { ro.disconnect(); window.removeEventListener("resize", update); };
+  }, []);
 
   useEffect(() => {
     document.documentElement.classList.add("dark");
@@ -1164,7 +1173,7 @@ export default function App() {
       <SocialSidebar />
       <Navbar />
       <WhatsAppFAB />
-      <main>
+      <main className="relative z-10" style={{ background: BG, marginBottom: footerHeight }}>
         <HeroSection />
         <MarqueeStrip />
         <AboutSection />
@@ -1173,7 +1182,7 @@ export default function App() {
         <ExperienceSection />
         <ContactSection />
       </main>
-      <Footer />
+      <Footer footerRef={footerRef} />
     </div>
   );
 }
