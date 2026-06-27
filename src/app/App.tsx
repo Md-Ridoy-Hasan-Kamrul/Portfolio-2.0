@@ -162,11 +162,11 @@ function LoadingScreen({ onDone }: { onDone: () => void }) {
 
       {/* Title + location */}
       <div ref={subtitleRef} className="flex items-center gap-3" style={{ opacity: 0 }}>
-        <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: MUTED }}>
+        <span className="font-mono text-xs font-bold tracking-[0.3em] uppercase" style={{ color: BODY }}>
           Front-End Developer
         </span>
         <span style={{ color: LIME, fontSize: 10 }}>·</span>
-        <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: MUTED }}>
+        <span className="font-mono text-xs font-bold tracking-[0.3em] uppercase" style={{ color: BODY }}>
           Dhaka, Bangladesh
         </span>
       </div>
@@ -411,7 +411,7 @@ function HeroSection() {
           {/* Availability badge */}
           <div className="flex items-center gap-3 mb-12">
             <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: LIME }} />
-            <span className="font-mono text-xs tracking-[0.32em] uppercase" style={{ color: MUTED }}>
+            <span className="font-mono text-xs font-bold tracking-[0.32em] uppercase" style={{ color: BODY }}>
               Available for freelance · Dhaka, Bangladesh
             </span>
           </div>
