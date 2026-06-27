@@ -62,7 +62,6 @@ export function AboutSection() {
               problem-solving mindset and a passion for creating impactful digital solutions.
             </p>
 
-            {/* Education timeline */}
             <div className="mt-6 space-y-3">
               {[
                 { year: "2022", degree: "B.Sc in CSE", school: "UITS, Dhaka" },

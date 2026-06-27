@@ -36,7 +36,6 @@ export function ExperienceSection() {
               onClick={() => setActive(i)}
             >
               <div className="grid grid-cols-12 gap-4 items-center">
-                {/* Index */}
                 <div className="col-span-1">
                   <span className="font-['Clash_Display'] font-semibold text-5xl transition-all duration-300"
                     style={{ color: active === i ? item.color : "rgba(255,255,255,0.08)" }}>
@@ -44,7 +43,6 @@ export function ExperienceSection() {
                   </span>
                 </div>
 
-                {/* Role + Company */}
                 <div className="col-span-12 sm:col-span-4">
                   <div className="font-mono text-xs tracking-widest mb-1 transition-colors duration-300"
                     style={{ color: active === i ? item.color : BODY }}>
@@ -53,12 +51,10 @@ export function ExperienceSection() {
                   <h3 className="font-['Clash_Display'] font-semibold text-lg" style={{ color: TEXT }}>{item.role}</h3>
                 </div>
 
-                {/* Period */}
                 <div className="col-span-6 sm:col-span-2">
                   <span className="font-mono text-xs" style={{ color: BODY }}>{item.period}</span>
                 </div>
 
-                {/* Stats */}
                 <div className="col-span-6 sm:col-span-5 flex flex-wrap gap-2 justify-end">
                   {item.stats.map((s) => (
                     <span key={s} className="px-2.5 py-1 rounded-md font-mono text-xs transition-all duration-300"
@@ -73,7 +69,6 @@ export function ExperienceSection() {
                 </div>
               </div>
 
-              {/* Expandable desc */}
               {active === i && (
                 <div className="mt-5" style={{ paddingLeft: "calc(8.33% + 16px)" }}>
                   <p className="text-base sm:text-lg leading-relaxed" style={{ color: BODY }}>{item.desc}</p>
@@ -83,7 +78,6 @@ export function ExperienceSection() {
           ))}
         </div>
 
-        {/* CV link */}
         <div className="mt-10 flex justify-start pl-[calc(8.33%+28px)]">
           <a href={CV_PDF_PATH} download={CV_DOWNLOAD_NAME} className="flex items-center gap-2 text-sm transition-all duration-300 group"
             style={{ color: BODY }}

@@ -4,13 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/**
- * Drives the fixed, slide-up footer reveal:
- * - `footerRef` / `footerEndRef` are wired to the <footer> and a zero-height
- *   sentinel placed right after the last section.
- * - `footerHeight` is measured live (ResizeObserver) so the reserved gap at
- *   the end of the page always matches the footer's actual rendered height.
- */
+// footerHeight is measured live so the reserved gap always matches the footer's actual rendered size across breakpoints.
 export function useFooterReveal() {
   const footerRef = useRef<HTMLElement>(null);
   const footerEndRef = useRef<HTMLDivElement>(null);

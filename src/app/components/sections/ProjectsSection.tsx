@@ -28,7 +28,6 @@ export function ProjectsSection() {
         <div className="space-y-5">
           {PROJECTS.map((p) => (
             <div key={p.num} className="pj-entry opacity-0 group rounded-2xl overflow-hidden" style={{ background: SURFACE, border: "1px solid rgba(255,255,255,0.05)" }}>
-              {/* Full-bleed image */}
               <div className="relative overflow-hidden" style={{ height: "clamp(220px, 28vw, 380px)" }}>
                 <img
                   src={p.img} alt={p.title}
@@ -37,7 +36,6 @@ export function ProjectsSection() {
                 />
                 <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, transparent 20%, ${SURFACE})` }} />
 
-                {/* Hover overlay — links */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "rgba(6,6,12,0.55)" }}>
                   <div className="flex gap-3">
                     <a href={p.live} className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-opacity hover:opacity-85"
@@ -51,13 +49,11 @@ export function ProjectsSection() {
                   </div>
                 </div>
 
-                {/* Watermark number */}
                 <div className="absolute top-4 left-6 font-['Clash_Display'] font-semibold" style={{ fontSize: 96, color: "rgba(255,255,255,0.03)", lineHeight: 1, userSelect: "none" }}>
                   {p.num}
                 </div>
               </div>
 
-              {/* Project meta */}
               <div className="p-7 flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div>
                   <div className="flex items-center gap-3 mb-2">

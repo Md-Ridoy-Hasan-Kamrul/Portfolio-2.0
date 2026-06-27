@@ -37,7 +37,6 @@ export function ContactSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="ct-inner opacity-0 grid lg:grid-cols-2 gap-20 items-start">
-          {/* Left — Large CTA */}
           <div>
             <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: LIME }}>06 / Contact</span>
             <h2 className="font-['Clash_Display'] font-semibold mt-6 leading-[0.9] text-5xl sm:text-6xl md:text-7xl lg:text-8xl" style={{ color: TEXT }}>
@@ -86,7 +85,6 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* Right — Form */}
           <form onSubmit={submit} className="p-8 rounded-2xl space-y-5" style={{ background: SURFACE, border: "1px solid rgba(255,255,255,0.05)" }}>
             <div className="grid sm:grid-cols-2 gap-5">
               {[["name", "Name", "Your name"], ["email", "Email", "you@company.com"]].map(([key, lbl, ph]) => (

@@ -17,9 +17,7 @@ export function Footer({ footerRef }: { footerRef: React.RefObject<HTMLElement> 
       style={{ background: BG, borderTop: "1px solid rgba(255,255,255,0.07)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top row: logo + social icons centered */}
         <div className="flex flex-col items-center gap-4 mb-6">
-          {/* Logo */}
           <div className="flex flex-col items-center gap-1">
             <div className="font-['Clash_Display'] font-semibold text-2xl tracking-tight" style={{ color: TEXT }}>
               <span style={{ color: LIME }}>M</span>R<span style={{ color: LIME }}>K</span>
@@ -28,7 +26,6 @@ export function Footer({ footerRef }: { footerRef: React.RefObject<HTMLElement> 
               Md. Ridoy Hasan Kamrul
             </div>
           </div>
-          {/* Social icons — centered, clear of FAB */}
           <div className="flex items-center gap-6">
             {links.map(({ icon: Icon, href, label }) => (
               <a key={label} href={href} aria-label={label}
@@ -41,7 +38,6 @@ export function Footer({ footerRef }: { footerRef: React.RefObject<HTMLElement> 
             ))}
           </div>
         </div>
-        {/* Bottom row: copyright */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-2 pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
           <p className="font-mono text-xs tracking-widest uppercase" style={{ color: BODY }}>
             Front-End Developer · MERN Stack

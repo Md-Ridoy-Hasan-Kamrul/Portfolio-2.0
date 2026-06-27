@@ -40,12 +40,10 @@ export function HeroSection() {
       style={{ background: BG }}
       onMouseMove={(e) => setSpot({ x: e.clientX, y: e.clientY })}
     >
-      {/* Mouse spotlight */}
       <div className="absolute inset-0 pointer-events-none transition-none" style={{
         background: `radial-gradient(650px at ${spot.x}px ${spot.y}px, rgba(184,255,59,0.065), transparent 62%)`,
       }} />
 
-      {/* Subtle grid */}
       <div className="absolute inset-0 pointer-events-none" style={{
         opacity: 0.018,
         backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
@@ -53,9 +51,7 @@ export function HeroSection() {
       }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid lg:grid-cols-12 gap-6 items-center pt-28 pb-20">
-        {/* Text */}
         <div className="col-span-12 lg:col-span-7">
-          {/* Availability badge */}
           <div className="flex items-center gap-3 mb-12">
             <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: LIME }} />
             <span className="font-mono text-xs font-bold tracking-[0.32em] uppercase" style={{ color: BODY }}>
@@ -63,7 +59,6 @@ export function HeroSection() {
             </span>
           </div>
 
-          {/* Display headline — text masking reveal */}
           <div className="space-y-1 mb-10">
             {[
               { ref: l1, text: "RIDOY", gradient: false },
@@ -119,13 +114,10 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Photo */}
         <div className="col-span-12 lg:col-span-5 flex justify-center lg:justify-end">
           <div ref={imgRef} className="relative" style={{ opacity: 0 }}>
-            {/* Lime glow under photo */}
             <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-60 h-28 rounded-full blur-3xl" style={{ background: `${LIME}18` }} />
 
-            {/* Corner accents */}
             <div className="absolute top-0 right-0 w-12 h-12">
               <div className="absolute top-0 right-0 w-8 h-px" style={{ background: LIME }} />
               <div className="absolute top-0 right-0 w-px h-8" style={{ background: LIME }} />
@@ -135,7 +127,6 @@ export function HeroSection() {
               <div className="absolute bottom-0 left-0 w-px h-8" style={{ background: LIME }} />
             </div>
 
-            {/* Photo */}
             <div className="relative overflow-hidden rounded-2xl" style={{ width: "clamp(240px,22vw,340px)", aspectRatio: "3/4", boxShadow: `0 0 90px ${LIME}10` }}>
               <img
                 src={developerPhoto}
@@ -147,7 +138,6 @@ export function HeroSection() {
               <div className="absolute inset-0" style={{ background: `linear-gradient(to left, transparent 60%, ${BG}30 100%)` }} />
             </div>
 
-            {/* Floating tech badges */}
             {[
               { icon: SiReact,      label: "React",      color: "#61DAFB", cls: "top-6 -left-20" },
               { icon: SiNextdotjs,  label: "Next.js",    color: TEXT,      cls: "top-28 -left-24" },
@@ -165,7 +155,6 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll cue */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5">
         <div className="w-px h-11 animate-pulse" style={{ background: `linear-gradient(to bottom, ${LIME}70, transparent)` }} />
         <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: BODY }}>scroll</span>

@@ -29,7 +29,6 @@ export function LoadingScreen({ onDone }: { onDone: () => void }) {
         background: `radial-gradient(500px at 50% 50%, ${LIME}07, transparent 70%)`,
       }} />
 
-      {/* Name */}
       <div className="flex items-center">
         {name.split("").map((c, i) => (
           <div key={i} style={{ overflow: "hidden", display: "inline-block" }}>
@@ -41,11 +40,9 @@ export function LoadingScreen({ onDone }: { onDone: () => void }) {
         ))}
       </div>
 
-      {/* Lime underline */}
       <div ref={lineRef} className="h-px w-28 origin-left"
         style={{ background: `linear-gradient(90deg, ${LIME}, transparent)`, transform: "scaleX(0)" }} />
 
-      {/* Title + location */}
       <div ref={subtitleRef} className="flex items-center gap-3" style={{ opacity: 0 }}>
         <span className="font-mono text-xs font-bold tracking-[0.3em] uppercase" style={{ color: BODY }}>
           Front-End Developer

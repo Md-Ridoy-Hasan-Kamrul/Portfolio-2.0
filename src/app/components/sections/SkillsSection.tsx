@@ -35,7 +35,6 @@ export function SkillsSection() {
               Built through real client work, internships & production projects.
             </p>
 
-            {/* Category legend */}
             <div className="flex flex-wrap gap-3 mt-8">
               {[["Frontend", "#61DAFB"], ["Backend", "#8CC84B"], ["Creative", "#F24E1E"], ["Tools", "#F05032"]].map(([cat, col]) => (
                 <div key={cat} className="flex items-center gap-2">
@@ -46,7 +45,6 @@ export function SkillsSection() {
             </div>
           </div>
 
-          {/* Floating skill constellation */}
           <div className="relative h-[440px]">
             {SKILLS_LIST.map((skill) => (
               <div
