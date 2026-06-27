@@ -24,7 +24,7 @@ export function SocialSidebar() {
   ];
 
   return (
-    <div className="fixed left-6 bottom-0 z-40 hidden lg:flex flex-col items-center">
+    <div className="fixed left-6 bottom-0 z-40 hidden xl:flex flex-col items-center">
       <div ref={ref} className="flex flex-col items-center gap-5">
         {links.map(({ icon: Icon, href, label }) => (
           <a key={label} href={href} aria-label={label}
