@@ -147,8 +147,8 @@ function LoadingScreen({ onDone }: { onDone: () => void }) {
       <div className="flex items-center">
         {name.split("").map((c, i) => (
           <div key={i} style={{ overflow: "hidden", display: "inline-block" }}>
-            <span className="lc inline-block font-['Clash_Display'] font-semibold"
-              style={{ fontSize: 60, letterSpacing: "-1px", color: c === "." ? LIME : TEXT, opacity: 0 }}>
+            <span className="lc inline-block font-['Clash_Display'] font-semibold text-3xl sm:text-5xl lg:text-6xl"
+              style={{ letterSpacing: "-1px", color: c === "." ? LIME : TEXT, opacity: 0 }}>
               {c}
             </span>
           </div>
@@ -304,7 +304,7 @@ function Navbar() {
         opacity: 0,
       }}
     >
-      <div className="max-w-7xl mx-auto px-8 flex items-center justify-between py-5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between py-5">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="flex items-center gap-1"
@@ -347,7 +347,7 @@ function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden px-8 py-5 flex flex-col gap-5 border-t" style={{ background: BG, borderColor: "rgba(255,255,255,0.05)" }}>
+        <div className="md:hidden px-4 sm:px-6 lg:px-8 py-5 flex flex-col gap-5 border-t" style={{ background: BG, borderColor: "rgba(255,255,255,0.05)" }}>
           {links.map((l) => (
             <button key={l} onClick={() => go(l)} className="text-left text-sm capitalize" style={{ color: MUTED }}>{l}</button>
           ))}
@@ -404,7 +404,7 @@ function HeroSection() {
         backgroundSize: "80px 80px",
       }} />
 
-      <div className="max-w-7xl mx-auto px-8 w-full grid lg:grid-cols-12 gap-6 items-center pt-28 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid lg:grid-cols-12 gap-6 items-center pt-28 pb-20">
         {/* Text */}
         <div className="col-span-12 lg:col-span-7">
           {/* Availability badge */}
@@ -425,9 +425,8 @@ function HeroSection() {
               <div key={text} style={{ overflow: "hidden", lineHeight: 1 }}>
                 <div
                   ref={ref}
-                  className="font-['Clash_Display'] font-semibold leading-[0.92] tracking-tight"
+                  className="font-['Clash_Display'] font-semibold leading-[0.92] tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
                   style={{
-                    fontSize: "clamp(52px, 8vw, 108px)",
                     ...(gradient
                       ? { background: `linear-gradient(130deg, ${LIME} 0%, ${MINT} 100%)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }
                       : { color: TEXT }),
@@ -439,7 +438,7 @@ function HeroSection() {
             ))}
           </div>
 
-          <p ref={subRef} className="text-lg leading-relaxed max-w-md mb-9" style={{ color: MUTED, opacity: 0 }}>
+          <p ref={subRef} className="text-base leading-relaxed max-w-md mb-9" style={{ color: MUTED, opacity: 0 }}>
             Front-End Developer specializing in the MERN stack — building responsive,
             user-friendly web applications with React, Next.js & modern web technologies.
           </p>
@@ -508,7 +507,7 @@ function HeroSection() {
               { icon: SiTailwindcss,label: "Tailwind",   color: "#06B6D4", cls: "top-14 -right-20" },
               { icon: SiTypescript, label: "TypeScript",  color: "#3178C6", cls: "bottom-24 -right-24" },
             ].map(({ icon: Icon, label, color, cls }) => (
-              <div key={label} className={`h-badge absolute ${cls} flex items-center gap-2 px-3 py-2 rounded-xl`}
+              <div key={label} className={`h-badge absolute ${cls} hidden lg:flex items-center gap-2 px-3 py-2 rounded-xl`}
                 style={{ background: SURFACE, border: "1px solid rgba(255,255,255,0.07)", backdropFilter: "blur(8px)", opacity: 0 }}>
                 <Icon style={{ color }} className="w-3.5 h-3.5 flex-shrink-0" />
                 <span className="font-mono text-[11px]" style={{ color: TEXT }}>{label}</span>
@@ -565,7 +564,7 @@ function AboutSection() {
 
   return (
     <section ref={sRef} id="about" className="py-36 relative">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-5 mb-24">
           <span className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: LIME }}>02 / About</span>
           <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
@@ -573,7 +572,7 @@ function AboutSection() {
 
         <div className="grid lg:grid-cols-2 gap-20 items-start">
           <div className="abt-l opacity-0">
-            <h2 className="font-['Clash_Display'] font-semibold leading-tight" style={{ fontSize: "clamp(30px, 4vw, 52px)", color: TEXT }}>
+            <h2 className="font-['Clash_Display'] font-semibold leading-tight text-3xl sm:text-4xl lg:text-5xl" style={{ color: TEXT }}>
               "I build web experiences that don't just function —{" "}
               <span style={{ color: LIME }}>they feel inevitable.</span>"
             </h2>
@@ -602,11 +601,11 @@ function AboutSection() {
           </div>
 
           <div className="abt-r opacity-0 space-y-6">
-            <p className="text-lg leading-[1.85]" style={{ color: MUTED }}>
+            <p className="text-base leading-[1.85]" style={{ color: MUTED }}>
               I'm Md. Ridoy Hasan Kamrul — a Computer Science graduate (B.Sc in CSE, UITS, Dhaka, 2022)
               specializing in the MERN stack with a strong focus on frontend development.
             </p>
-            <p className="leading-[1.85]" style={{ color: MUTED }}>
+            <p className="text-base leading-[1.85]" style={{ color: MUTED }}>
               I build responsive, user-friendly web applications that deliver exceptional user
               experiences. I thrive in both team and independent environments, bringing a
               problem-solving mindset and a passion for creating impactful digital solutions.
@@ -651,7 +650,7 @@ function SkillsSection() {
 
   return (
     <section ref={sRef} id="skills" className="py-36 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-5 mb-24">
           <span className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: LIME }}>03 / Skills</span>
           <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
@@ -659,12 +658,12 @@ function SkillsSection() {
 
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div className="sk-title opacity-0">
-            <h2 className="font-['Clash_Display'] font-semibold leading-tight" style={{ fontSize: "clamp(36px, 5vw, 68px)", color: TEXT }}>
+            <h2 className="font-['Clash_Display'] font-semibold leading-tight text-4xl sm:text-5xl lg:text-6xl" style={{ color: TEXT }}>
               The tools I{" "}
               <span style={{ color: LIME }}>master</span>{" "}
               every day
             </h2>
-            <p className="mt-5 leading-relaxed" style={{ color: MUTED }}>
+            <p className="mt-5 text-base leading-relaxed" style={{ color: MUTED }}>
               My complete frontend toolkit — from React & Next.js to Tailwind & TypeScript.
               Built through real client work, internships & production projects.
             </p>
@@ -733,7 +732,7 @@ function ProjectsSection() {
 
   return (
     <section ref={sRef} id="projects" className="py-36 relative">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-5 mb-24">
           <span className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: LIME }}>04 / Projects</span>
           <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
@@ -779,12 +778,12 @@ function ProjectsSection() {
                     <span className="font-mono text-[10px] tracking-widest" style={{ color: p.accent }}>{p.num}</span>
                     <span className="font-mono text-[10px]" style={{ color: MUTED }}>{p.caption}</span>
                   </div>
-                  <h3 className="font-['Clash_Display'] font-semibold" style={{ fontSize: "clamp(22px, 3vw, 32px)", color: TEXT }}>
+                  <h3 className="font-['Clash_Display'] font-semibold text-xl sm:text-2xl lg:text-3xl" style={{ color: TEXT }}>
                     {p.title}{" "}
                     <span style={{ color: MUTED, fontWeight: 400 }}>{p.sub}</span>{" "}
                     <span style={{ color: p.accent }}>↗</span>
                   </h3>
-                  <p className="mt-2.5 text-sm max-w-xl leading-relaxed" style={{ color: MUTED }}>{p.desc}</p>
+                  <p className="mt-2.5 text-base max-w-xl leading-relaxed" style={{ color: MUTED }}>{p.desc}</p>
                 </div>
                 <div className="flex flex-wrap gap-2 flex-shrink-0">
                   {p.tags.map((t) => (
@@ -818,7 +817,7 @@ function ExperienceSection() {
 
   return (
     <section ref={sRef} id="experience" className="py-36 relative">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-5 mb-24">
           <span className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: LIME }}>05 / Experience</span>
           <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
@@ -876,7 +875,7 @@ function ExperienceSection() {
               {/* Expandable desc */}
               {active === i && (
                 <div className="mt-5" style={{ paddingLeft: "calc(8.33% + 16px)" }}>
-                  <p className="text-sm leading-relaxed" style={{ color: MUTED }}>{item.desc}</p>
+                  <p className="text-base leading-relaxed" style={{ color: MUTED }}>{item.desc}</p>
                 </div>
               )}
             </div>
@@ -930,12 +929,12 @@ function ContactSection() {
     <section ref={sRef} id="contact" className="py-36 relative">
       <div className="absolute top-0 inset-x-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${LIME}25, transparent)` }} />
 
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="ct-inner opacity-0 grid lg:grid-cols-2 gap-20 items-start">
           {/* Left — Large CTA */}
           <div>
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: LIME }}>06 / Contact</span>
-            <h2 className="font-['Clash_Display'] font-semibold mt-6 leading-[0.9]" style={{ fontSize: "clamp(52px, 8vw, 100px)", color: TEXT }}>
+            <h2 className="font-['Clash_Display'] font-semibold mt-6 leading-[0.9] text-5xl sm:text-6xl md:text-7xl lg:text-8xl" style={{ color: TEXT }}>
               Let's
               <br />
               <span style={{ color: LIME }}>build</span>
@@ -943,7 +942,7 @@ function ContactSection() {
               something.
             </h2>
 
-            <p className="mt-8 leading-relaxed" style={{ color: MUTED, maxWidth: 380 }}>
+            <p className="mt-8 text-base leading-relaxed" style={{ color: MUTED, maxWidth: 380 }}>
               Computer Science graduate specializing in MERN stack — available for freelance
               projects via Fiverr and open to full-time opportunities globally.
             </p>
@@ -1037,7 +1036,7 @@ function Footer() {
   ];
   return (
     <footer className="py-8" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top row: logo + social icons centered */}
         <div className="flex flex-col items-center gap-4 mb-6">
           {/* Logo */}
