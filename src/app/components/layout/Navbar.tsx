@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX, FiMail } from "react-icons/fi";
 import { BG, LIME, TEXT, BODY } from "../../constants/theme";
 import { CONTACT_EMAIL, CONTACT_EMAIL_HREF } from "../../constants/site";
 
@@ -104,6 +104,19 @@ export function Navbar() {
                 {l}
               </button>
             ))}
+            <a
+              href={CONTACT_EMAIL_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 mt-4 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300"
+              style={{ color: TEXT, border: "1px solid rgba(255,255,255,0.1)", opacity: 0 }}
+              onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.borderColor = `${LIME}50`; el.style.color = LIME; }}
+              onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "rgba(255,255,255,0.1)"; el.style.color = TEXT; }}
+            >
+              <FiMail className="w-4 h-4" />
+              {CONTACT_EMAIL}
+            </a>
           </div>
         </div>
       </div>

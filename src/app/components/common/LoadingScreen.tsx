@@ -43,12 +43,12 @@ export function LoadingScreen({ onDone }: { onDone: () => void }) {
       <div ref={lineRef} className="h-px w-28 origin-left"
         style={{ background: `linear-gradient(90deg, ${LIME}, transparent)`, transform: "scaleX(0)" }} />
 
-      <div ref={subtitleRef} className="flex items-center gap-3" style={{ opacity: 0 }}>
-        <span className="font-mono text-xs font-bold tracking-[0.3em] uppercase" style={{ color: BODY }}>
+      <div ref={subtitleRef} className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 px-6" style={{ opacity: 0 }}>
+        <span className="font-mono text-xs font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase whitespace-nowrap" style={{ color: BODY }}>
           Front-End Developer
         </span>
-        <span style={{ color: LIME, fontSize: 10 }}>·</span>
-        <span className="font-mono text-xs font-bold tracking-[0.3em] uppercase" style={{ color: BODY }}>
+        <span className="hidden sm:inline" style={{ color: LIME, fontSize: 10 }}>·</span>
+        <span className="font-mono text-xs font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase whitespace-nowrap" style={{ color: BODY }}>
           Dhaka, Bangladesh
         </span>
       </div>
