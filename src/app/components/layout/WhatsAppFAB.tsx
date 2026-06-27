@@ -33,7 +33,7 @@ export function WhatsAppFAB({ hideForFooter = false }: { hideForFooter?: boolean
       aria-label="Chat on WhatsApp"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="fixed bottom-36 right-6 z-[99998] flex flex-row-reverse items-center"
+      className="fixed bottom-6 right-6 z-[99998] flex flex-row-reverse items-center"
       style={{ opacity: 0 }}
     >
       <div className="ml-3 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-300"

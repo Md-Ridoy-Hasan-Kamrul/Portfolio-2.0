@@ -8,6 +8,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
+  const linksRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 50);
@@ -15,6 +16,16 @@ export function Navbar() {
     gsap.fromTo(navRef.current, { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 2.5 });
     return () => window.removeEventListener("scroll", fn);
   }, []);
+
+  useEffect(() => {
+    if (!linksRef.current) return;
+    const items = linksRef.current.children;
+    if (open) {
+      gsap.fromTo(items, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.06, ease: "power3.out", delay: 0.1 });
+    } else {
+      gsap.set(items, { opacity: 0, y: 16 });
+    }
+  }, [open]);
 
   const go = (id: string) => {
     setOpen(false);
@@ -81,11 +92,15 @@ export function Navbar() {
         style={{ gridTemplateRows: open ? "1fr" : "0fr", transition: "grid-template-rows 300ms ease" }}
       >
         <div style={{ overflow: "hidden", minHeight: 0 }}>
-          <div className="px-4 sm:px-6 lg:px-8 py-5 flex flex-col gap-5 border-t" style={{ background: BG, borderColor: "rgba(255,255,255,0.05)" }}>
-            {links.map((l) => (
+          <div ref={linksRef} className="px-4 sm:px-6 lg:px-8 py-8 flex flex-col items-center gap-2 border-t" style={{ background: BG, borderColor: "rgba(255,255,255,0.05)" }}>
+            {links.map((l, i) => (
               <button key={l} onClick={() => go(l)}
-                className="text-left text-sm capitalize transition-opacity duration-200"
-                style={{ color: BODY, opacity: open ? 1 : 0 }}>
+                className="flex items-center gap-3 px-6 py-3 rounded-full capitalize text-xl font-medium tracking-wide transition-all duration-300"
+                style={{ color: BODY, opacity: 0 }}
+                onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.color = LIME; el.style.background = `${LIME}12`; el.style.transform = "scale(1.06)"; }}
+                onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.color = BODY; el.style.background = "transparent"; el.style.transform = "scale(1)"; }}
+              >
+                <span className="font-mono text-xs" style={{ color: LIME }}>0{i + 1}</span>
                 {l}
               </button>
             ))}
