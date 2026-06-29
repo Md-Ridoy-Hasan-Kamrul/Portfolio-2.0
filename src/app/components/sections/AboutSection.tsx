@@ -41,7 +41,7 @@ export function AboutSection() {
 
             <div className="mt-10 space-y-3">
               {[
-                "Front-End Developer at MAK Tech Solution via Fiverr",
+                "Front-End Developer at Maktech via Fiverr",
                 "B.Sc in CSE, UITS Dhaka — graduated 2022",
                 "Open to freelance & full-time opportunities globally",
               ].map((item) => (
