@@ -20,7 +20,7 @@ export function Footer({ footerRef }: { footerRef: React.RefObject<HTMLElement> 
         <div className="flex flex-col items-center gap-4 mb-6">
           <div className="flex flex-col items-center gap-1">
             <div className="font-['Clash_Display'] font-semibold text-2xl tracking-tight" style={{ color: TEXT }}>
-              <span style={{ color: LIME }}>M</span>RH<span style={{ color: LIME }}>K</span>
+              <span style={{ color: LIME }}>M</span>R<span style={{ color: LIME }}>H</span>K
             </div>
             <div className="font-mono text-xs tracking-[0.25em] uppercase" style={{ color: BODY }}>
               Md. Ridoy Hasan Kamrul

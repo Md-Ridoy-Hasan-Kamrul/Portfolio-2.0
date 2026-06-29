@@ -9,11 +9,13 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
+  const tagRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", fn);
     gsap.fromTo(navRef.current, { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 2.5 });
+    gsap.fromTo(tagRef.current, { yPercent: 110 }, { yPercent: 0, duration: 0.8, ease: "power4.out", delay: 2.7 });
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
@@ -52,10 +54,12 @@ export function Navbar() {
           style={{ color: TEXT }}
         >
           <span className="font-['Clash_Display'] font-semibold text-xl tracking-tight">
-            <span style={{ color: LIME }}>M</span>RH<span style={{ color: LIME }}>K</span>
+            <span style={{ color: LIME }}>M</span>R<span style={{ color: LIME }}>H</span>K
           </span>
-          <span className="font-mono text-xs tracking-widest ml-1.5 hidden sm:block" style={{ color: BODY }}>
-            kamrul.dev
+          <span className="ml-1.5 hidden sm:inline-block" style={{ overflow: "hidden" }}>
+            <span ref={tagRef} className="inline-block font-mono text-xs tracking-widest" style={{ color: BODY }}>
+              kamrul.dev
+            </span>
           </span>
         </button>
 
