@@ -61,11 +61,11 @@ export function ProjectsSection() {
 
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "rgba(6,6,12,0.55)" }}>
                   <div className="flex gap-3">
-                    <a href={p.live} className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-opacity hover:opacity-85"
+                    <a href={p.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-opacity hover:opacity-85"
                       style={{ background: p.accent, color: BG }}>
                       Live <FiExternalLink className="w-3.5 h-3.5" />
                     </a>
-                    <a href={p.github} className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-white transition-opacity hover:opacity-70"
+                    <a href={p.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-white transition-opacity hover:opacity-70"
                       style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)" }}>
                       Source <FiGithub className="w-3.5 h-3.5" />
                     </a>
