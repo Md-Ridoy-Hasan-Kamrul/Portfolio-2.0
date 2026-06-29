@@ -55,7 +55,7 @@ export function AboutSection() {
 
           <div className="abt-r opacity-0 space-y-6">
             <p className="text-base sm:text-lg leading-[1.85]" style={{ color: BODY }}>
-              I'm Md. Ridoy Hasan Kamrul — a Computer Science graduate (B.Sc in CSE, UITS, Dhaka, 2022)
+              I'm Md. Ridoy Hasan Kamrul a Computer Science graduate (B.Sc in CSE, UITS, Dhaka, 2022)
               specializing in the MERN stack with a strong focus on frontend development.
             </p>
             <p className="text-base sm:text-lg leading-[1.85]" style={{ color: BODY }}>
@@ -66,9 +66,9 @@ export function AboutSection() {
 
             <div className="mt-6 space-y-3">
               {[
-                { year: "2022", degree: "B.Sc in CSE", school: "UITS, Dhaka" },
-                { year: "2016", degree: "H.S.C", school: "Shaheed Ramiz Uddin Cantonment College" },
-                { year: "2014", degree: "S.S.C", school: "Govt. Kalachandpur High School & College" },
+                { year: "2022", degree: "B.Sc in CSE", school: "University of Information Technology and Sciences (UITS), Dhaka" },
+                { year: "2016", degree: "H.S.C", school: "Shaheed Ramiz Uddin Cantonment College (SRCC)" },
+                { year: "2014", degree: "S.S.C", school: "Govt. Kalachandpur High School & College (GKHSC)" },
               ].map((e) => (
                 <div key={e.year} className="flex items-start gap-4">
                   <span className="font-mono text-xs tracking-widest flex-shrink-0 mt-0.5" style={{ color: LIME }}>{e.year}</span>
