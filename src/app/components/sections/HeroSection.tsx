@@ -82,7 +82,7 @@ export function HeroSection() {
           </div>
 
           <p ref={subRef} className="text-base sm:text-lg leading-relaxed max-w-md mb-9" style={{ color: BODY, opacity: 0 }}>
-            Front-End Developer specializing in the MERN stack — building responsive,
+            Front-End Developer specializing in the MERN stack building responsive,
             user-friendly web applications with React, Next.js & modern web technologies.
           </p>
 
@@ -105,7 +105,7 @@ export function HeroSection() {
           </div>
 
           <div ref={statsRef} className="flex gap-10 mt-12 pt-12" style={{ borderTop: "1px solid rgba(255,255,255,0.05)", opacity: 0 }}>
-            {[["3+", "Years exp."], ["9+", "Projects"], ["B.Sc", "CSE · UITS"]].map(([v, l]) => (
+            {[["1.6+", "Years exp."], ["50+", "Projects"], ["B.Sc", "CSE · UITS"]].map(([v, l]) => (
               <div key={l}>
                 <div className="font-['Clash_Display'] font-semibold text-3xl" style={{ color: TEXT }}>{v}</div>
                 <div className="text-xs mt-1" style={{ color: BODY }}>{l}</div>
