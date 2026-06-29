@@ -33,7 +33,7 @@ export function SocialSidebar() {
             onMouseEnter={(e) => { gsap.to(e.currentTarget, { scale: 1.35, y: -4, color, duration: 0.35, ease: "back.out(2.5)" }); }}
             onMouseLeave={(e) => { gsap.to(e.currentTarget, { scale: 1, y: 0, color: BODY, duration: 0.4, ease: "power2.out" }); }}
           >
-            <Icon className="w-[15px] h-[15px]" />
+            <Icon className="w-5 h-5" />
           </a>
         ))}
         <div className="w-px h-20 mt-1" style={{ background: `linear-gradient(to bottom, rgba(255,255,255,0.12), transparent)` }} />
