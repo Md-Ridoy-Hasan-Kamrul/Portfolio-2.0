@@ -33,7 +33,7 @@ export function SkillsSection() {
               every day
             </h2>
             <p className="mt-5 text-base sm:text-lg leading-relaxed" style={{ color: BODY }}>
-              My complete frontend toolkit — from React & Next.js to Tailwind & TypeScript.
+              My complete frontend toolkit  from React & Next.js to Tailwind & TypeScript.
               Built through real client work, internships & production projects.
             </p>
 
