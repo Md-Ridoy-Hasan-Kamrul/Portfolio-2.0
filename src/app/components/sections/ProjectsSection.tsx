@@ -1,13 +1,15 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
-import { PROJECTS } from "../../data/projects";
+import { PROJECTS, PROJECT_CATEGORIES } from "../../data/projects";
 import { BG, LIME, SURFACE, TEXT, BODY } from "../../constants/theme";
 import { useSectionSpacing } from "../../hooks/useSectionSpacing";
 
 export function ProjectsSection() {
   const sRef = useRef<HTMLElement>(null);
   const { py, mb } = useSectionSpacing();
+  const [activeTab, setActiveTab] = useState<string>("All");
+  const filtered = activeTab === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === activeTab);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -16,7 +18,7 @@ export function ProjectsSection() {
       });
     }, sRef);
     return () => ctx.revert();
-  }, []);
+  }, [activeTab]);
 
   return (
     <section ref={sRef} id="projects" className="relative" style={{ paddingTop: py, paddingBottom: py }}>
@@ -27,8 +29,27 @@ export function ProjectsSection() {
           <span className="font-mono text-xs" style={{ color: BODY }}>Selected Work</span>
         </div>
 
+        <div className="flex flex-wrap gap-2 mb-10">
+          {PROJECT_CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveTab(cat)}
+              className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
+              style={{
+                background: activeTab === cat ? LIME : "transparent",
+                color: activeTab === cat ? BG : BODY,
+                border: `1px solid ${activeTab === cat ? LIME : "rgba(255,255,255,0.1)"}`,
+              }}
+              onMouseEnter={(e) => { if (activeTab !== cat) (e.currentTarget as HTMLElement).style.color = TEXT; }}
+              onMouseLeave={(e) => { if (activeTab !== cat) (e.currentTarget as HTMLElement).style.color = BODY; }}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         <div className="space-y-5">
-          {PROJECTS.map((p) => (
+          {filtered.map((p) => (
             <div key={p.num} className="pj-entry opacity-0 group rounded-2xl overflow-hidden" style={{ background: SURFACE, border: "1px solid rgba(255,255,255,0.05)" }}>
               <div className="relative overflow-hidden" style={{ height: "clamp(220px, 28vw, 380px)" }}>
                 <img
