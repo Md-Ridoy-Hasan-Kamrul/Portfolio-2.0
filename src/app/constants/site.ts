@@ -1,4 +1,4 @@
-export const CV_PDF_PATH = "/Ridoy_Hasan_Kamrul_CV.pdf";
+export const CV_PDF_PATH = `${import.meta.env.BASE_URL}Ridoy_Hasan_Kamrul_CV.pdf`;
 export const CV_DOWNLOAD_NAME = "Md_Ridoy_Hasan_Kamrul_CV.pdf";
 
 export const CONTACT_EMAIL = "mdridoyhasankamrul@gmail.com";
