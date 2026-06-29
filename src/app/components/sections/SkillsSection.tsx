@@ -38,7 +38,7 @@ export function SkillsSection() {
             </p>
 
             <div className="flex flex-wrap gap-3 mt-8">
-              {[["Frontend", "#61DAFB"], ["Backend", "#8CC84B"], ["Creative", "#F24E1E"], ["Tools", "#F05032"]].map(([cat, col]) => (
+              {[["Frontend", "#61DAFB"], ["Styling", "#06B6D4"], ["Design", "#F24E1E"], ["Workflow", "#F05032"]].map(([cat, col]) => (
                 <div key={cat} className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full" style={{ background: col }} />
                   <span className="font-mono text-xs tracking-widest uppercase" style={{ color: BODY }}>{cat}</span>
