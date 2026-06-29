@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { FiExternalLink } from "react-icons/fi";
 import { PROJECTS, PROJECT_CATEGORIES } from "../../data/projects";
 import { BG, LIME, SURFACE, TEXT, BODY } from "../../constants/theme";
 import { useSectionSpacing } from "../../hooks/useSectionSpacing";
@@ -111,10 +111,6 @@ export function ProjectsSection() {
                   <a href={p.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold transition-opacity hover:opacity-85"
                     style={{ background: p.accent, color: BG }}>
                     Live <FiExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                  <a href={p.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium text-white transition-opacity hover:opacity-70"
-                    style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)" }}>
-                    Source <FiGithub className="w-3.5 h-3.5" />
                   </a>
                 </div>
 
