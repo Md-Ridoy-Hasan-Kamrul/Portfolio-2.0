@@ -101,7 +101,7 @@ export function ExperienceSection() {
                 <div className='col-span-6 sm:col-span-2'>
                   {item.period.includes('Present') ? (
                     <span
-                      className='ex-live-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-mono text-xs font-semibold'
+                      className='relative inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-mono text-xs font-semibold overflow-hidden'
                       style={{
                         background: `linear-gradient(135deg, ${item.color}28, ${item.color}10)`,
                         color: item.color,
@@ -113,7 +113,8 @@ export function ExperienceSection() {
                         <span className='absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping' style={{ background: item.color }} />
                         <span className='relative inline-flex w-1.5 h-1.5 rounded-full' style={{ background: item.color }} />
                       </span>
-                      {item.period}
+                      <span className='relative'>{item.period}</span>
+                      <span className='ex-live-shimmer absolute inset-y-0 w-8 pointer-events-none' style={{ background: `linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent)` }} />
                     </span>
                   ) : (
                     <span

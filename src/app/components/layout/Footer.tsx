@@ -25,7 +25,7 @@ export function Footer({ footerRef }: { footerRef: React.RefObject<HTMLElement> 
               <span style={{ color: LIME }}>M</span>R<span style={{ color: LIME }}>H</span>K
             </div>
             <div className="font-mono text-xs tracking-[0.25em] uppercase" style={{ color: BODY }}>
-              Md. Ridoy Hasan Kamrul
+              Md.Ridoy Hasan Kamrul
             </div>
           </div>
           <div className="flex items-center gap-6">
