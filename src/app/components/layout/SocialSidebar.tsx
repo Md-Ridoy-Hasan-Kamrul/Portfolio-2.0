@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { FiGithub } from "react-icons/fi";
-import { FaLinkedinIn, FaTwitter, FaDribbble } from "react-icons/fa";
+import { FaLinkedinIn, FaFacebookF, FaWhatsapp } from "react-icons/fa";
 import { BODY, TEXT } from "../../constants/theme";
+import { GITHUB_HREF, LINKEDIN_HREF, FACEBOOK_HREF, WHATSAPP_HREF } from "../../constants/site";
 
 export function SocialSidebar() {
   const ref = useRef<HTMLDivElement>(null);
@@ -17,17 +18,17 @@ export function SocialSidebar() {
   }, []);
 
   const links = [
-    { icon: FiGithub, href: "#", label: "GitHub" },
-    { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
-    { icon: FaTwitter, href: "#", label: "Twitter" },
-    { icon: FaDribbble, href: "#", label: "Dribbble" },
+    { icon: FiGithub, href: GITHUB_HREF, label: "GitHub" },
+    { icon: FaLinkedinIn, href: LINKEDIN_HREF, label: "LinkedIn" },
+    { icon: FaFacebookF, href: FACEBOOK_HREF, label: "Facebook" },
+    { icon: FaWhatsapp, href: WHATSAPP_HREF, label: "WhatsApp" },
   ];
 
   return (
     <div className="fixed left-6 bottom-0 z-40 hidden 2xl:flex flex-col items-center">
       <div ref={ref} className="flex flex-col items-center gap-5">
         {links.map(({ icon: Icon, href, label }) => (
-          <a key={label} href={href} aria-label={label}
+          <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
             className="transition-all duration-300 hover:-translate-y-0.5"
             style={{ color: BODY, opacity: 0 }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = TEXT; }}

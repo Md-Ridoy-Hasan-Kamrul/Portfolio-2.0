@@ -8,4 +8,6 @@ export const CONTACT_PHONE_HREF = "tel:+8801680092066";
 export const CONTACT_LOCATION = "Dhaka, Bangladesh";
 
 export const WHATSAPP_HREF = "https://wa.me/8801680092066";
-export const LINKEDIN_HREF = "https://linkedin.com/in/md-ridoy-hasan-kamrul";
+export const LINKEDIN_HREF = "https://www.linkedin.com/in/md-ridoy-hasan-kamrul";
+export const GITHUB_HREF = "https://github.com/Md-Ridoy-Hasan-Kamrul";
+export const FACEBOOK_HREF = "https://www.facebook.com/kamrulhasan17151025";

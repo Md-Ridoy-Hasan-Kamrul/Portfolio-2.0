@@ -1,13 +1,14 @@
 import { FiGithub } from "react-icons/fi";
-import { FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { FaLinkedinIn, FaFacebookF, FaWhatsapp } from "react-icons/fa";
 import { BG, LIME, TEXT, BODY } from "../../constants/theme";
-import { LINKEDIN_HREF } from "../../constants/site";
+import { GITHUB_HREF, LINKEDIN_HREF, FACEBOOK_HREF, WHATSAPP_HREF } from "../../constants/site";
 
 export function Footer({ footerRef }: { footerRef: React.RefObject<HTMLElement> }) {
   const links = [
-    { icon: FiGithub, href: "#", label: "GitHub" },
+    { icon: FiGithub, href: GITHUB_HREF, label: "GitHub" },
     { icon: FaLinkedinIn, href: LINKEDIN_HREF, label: "LinkedIn" },
-    { icon: FaTwitter, href: "#", label: "Twitter" },
+    { icon: FaFacebookF, href: FACEBOOK_HREF, label: "Facebook" },
+    { icon: FaWhatsapp, href: WHATSAPP_HREF, label: "WhatsApp" },
   ];
 
   return (
@@ -28,7 +29,7 @@ export function Footer({ footerRef }: { footerRef: React.RefObject<HTMLElement> 
           </div>
           <div className="flex items-center gap-6">
             {links.map(({ icon: Icon, href, label }) => (
-              <a key={label} href={href} aria-label={label}
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
                 className="transition-all duration-300 hover:-translate-y-0.5"
                 style={{ color: BODY }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = LIME; }}
