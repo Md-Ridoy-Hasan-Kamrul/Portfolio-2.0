@@ -1,14 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import emailjs from "@emailjs/browser";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 import { toast } from "../common/Toast";
 import { BG, LIME, SURFACE, TEXT, BODY } from "../../constants/theme";
 import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, CONTACT_PHONE, CONTACT_PHONE_HREF, CONTACT_LOCATION } from "../../constants/site";
+import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from "../../constants/emailjs";
 import { useSectionSpacing } from "../../hooks/useSectionSpacing";
 
 export function ContactSection() {
   const sRef = useRef<HTMLElement>(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
   const { py } = useSectionSpacing();
 
   useEffect(() => {
@@ -18,19 +21,27 @@ export function ContactSection() {
     return () => ctx.revert();
   }, []);
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       toast.error("Please fill in all fields.");
       return;
     }
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${form.name}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
-    );
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    toast.success("Opening your email client...");
-    setForm({ name: "", email: "", message: "" });
+    setSending(true);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        { from_name: form.name, from_email: form.email, message: form.message, reply_to: form.email },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+      toast.success("Message sent — I'll get back to you soon!");
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      toast.error("Couldn't send your message. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -120,10 +131,11 @@ export function ContactSection() {
             </div>
             <button
               type="submit"
-              className="w-full py-3.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-opacity hover:opacity-85"
+              disabled={sending}
+              className="w-full py-3.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-opacity hover:opacity-85 disabled:opacity-60"
               style={{ background: LIME, color: BG }}
             >
-              Send Message →
+              {sending ? "Sending..." : "Send Message →"}
             </button>
           </form>
         </div>

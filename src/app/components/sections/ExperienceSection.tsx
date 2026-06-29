@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { EXPERIENCE } from '../../data/experience';
-import { LIME, SURFACE, TEXT, BODY } from '../../constants/theme';
+import { LIME, SURFACE, TEXT, BODY, BG } from '../../constants/theme';
 import { CV_PDF_PATH, CV_DOWNLOAD_NAME } from '../../constants/site';
 import { useSectionSpacing } from '../../hooks/useSectionSpacing';
 
@@ -94,25 +94,37 @@ export function ExperienceSection() {
                 </div>
 
                 <div className='col-span-6 sm:col-span-2'>
-                  <span
-                    className='inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md font-mono text-xs transition-all duration-300'
-                    style={{
-                      background:
-                        active === i
-                          ? `${item.color}12`
-                          : 'rgba(255,255,255,0.04)',
-                      color: active === i ? item.color : BODY,
-                      border: `1px solid ${active === i ? item.color + '22' : 'rgba(255,255,255,0.04)'}`,
-                    }}
-                  >
-                    {item.period.includes('Present') && (
-                      <span
-                        className='w-1.5 h-1.5 rounded-full animate-pulse'
-                        style={{ background: active === i ? item.color : LIME }}
-                      />
-                    )}
-                    {item.period}
-                  </span>
+                  {item.period.includes('Present') ? (
+                    <span
+                      className='inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-mono text-xs font-semibold'
+                      style={{
+                        background: `linear-gradient(135deg, ${item.color}28, ${item.color}10)`,
+                        color: item.color,
+                        border: `1px solid ${item.color}50`,
+                        boxShadow: `0 0 18px ${item.color}30`,
+                      }}
+                    >
+                      <span className='relative flex items-center justify-center w-2 h-2'>
+                        <span className='absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping' style={{ background: item.color }} />
+                        <span className='relative inline-flex w-1.5 h-1.5 rounded-full' style={{ background: item.color }} />
+                      </span>
+                      {item.period}
+                    </span>
+                  ) : (
+                    <span
+                      className='inline-flex items-center px-2.5 py-1 rounded-md font-mono text-xs transition-all duration-300'
+                      style={{
+                        background:
+                          active === i
+                            ? `${item.color}12`
+                            : 'rgba(255,255,255,0.04)',
+                        color: active === i ? item.color : BODY,
+                        border: `1px solid ${active === i ? item.color + '22' : 'rgba(255,255,255,0.04)'}`,
+                      }}
+                    >
+                      {item.period}
+                    </span>
+                  )}
                 </div>
 
                 <div className='col-span-6 sm:col-span-5 flex flex-wrap gap-2 justify-end'>
@@ -152,28 +164,18 @@ export function ExperienceSection() {
           ))}
         </div>
 
-        <div className='mt-10 flex justify-start pl-[calc(8.33%+28px)]'>
-          <a
-            href={CV_PDF_PATH}
-            download={CV_DOWNLOAD_NAME}
-            className='inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 group'
-            style={{ color: TEXT, border: '1px solid rgba(255,255,255,0.12)' }}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget as HTMLElement;
-              el.style.borderColor = `${LIME}60`;
-              el.style.background = `${LIME}10`;
-              el.style.color = LIME;
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget as HTMLElement;
-              el.style.borderColor = 'rgba(255,255,255,0.12)';
-              el.style.background = 'transparent';
-              el.style.color = TEXT;
-            }}
-          >
-            Download full resume
-            <FiArrowUpRight className='w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' />
-          </a>
+        <div className='mt-10 grid grid-cols-12 gap-4 px-7'>
+          <div className='col-span-12 sm:col-start-2 sm:col-span-4'>
+            <a
+              href={CV_PDF_PATH}
+              download={CV_DOWNLOAD_NAME}
+              className='inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 hover:opacity-85 hover:scale-[1.03] group'
+              style={{ background: LIME, color: BG, boxShadow: `0 4px 24px ${LIME}30` }}
+            >
+              Download full résumé
+              <FiArrowUpRight className='w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' />
+            </a>
+          </div>
         </div>
       </div>
     </section>
