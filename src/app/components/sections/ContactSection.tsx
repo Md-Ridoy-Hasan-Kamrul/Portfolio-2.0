@@ -61,7 +61,7 @@ export function ContactSection() {
             </h2>
 
             <p className="mt-8 text-base sm:text-lg leading-relaxed" style={{ color: BODY, maxWidth: 380 }}>
-              Computer Science graduate specializing in MERN stack — available for freelance
+              Computer Science graduate specializing in MERN stack available for freelance
               projects via Fiverr and open to full-time opportunities globally.
             </p>
 

@@ -29,13 +29,11 @@ export function ExperienceSection() {
           },
         },
       );
-      gsap.to('.ex-live-badge', {
-        scale: 1.07,
-        duration: 1,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-      });
+      gsap.fromTo(
+        '.ex-live-shimmer',
+        { left: '-40%' },
+        { left: '140%', duration: 1.5, repeat: -1, repeatDelay: 1.1, ease: 'power1.inOut' },
+      );
     }, sRef);
     return () => ctx.revert();
   }, []);
