@@ -64,7 +64,7 @@ export function ProjectsSection() {
             Selected <span style={{ color: LIME }}>Work</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg leading-relaxed max-w-xl" style={{ color: BODY }}>
-            A few projects I've shipped — from real estate platforms to AI-powered planning tools.
+            A few projects I've shipped from real estate platforms to AI-powered planning tools.
           </p>
         </div>
 
