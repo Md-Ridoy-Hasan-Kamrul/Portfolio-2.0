@@ -26,12 +26,12 @@ export function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-20 items-start">
           <div className="abt-l opacity-0">
             <h2 className="font-['Clash_Display'] font-semibold leading-tight text-3xl sm:text-4xl lg:text-5xl" style={{ color: TEXT }}>
-              "I build web experiences that don't just function —{" "}
+              "I build web experiences that don't just function {" "}
               <span style={{ color: LIME }}>they feel inevitable.</span>"
             </h2>
 
             <div className="mt-10 grid grid-cols-3 gap-4">
-              {[["3+", "Years"], ["9+", "Projects"], ["UITS", "B.Sc CSE"]].map(([v, l]) => (
+              {[["1.6+", "Years"], ["50+", "Projects"], ["UITS", "B.Sc CSE"]].map(([v, l]) => (
                 <div key={l} className="p-5 rounded-2xl" style={{ background: SURFACE, border: "1px solid rgba(255,255,255,0.05)" }}>
                   <div className="font-['Clash_Display'] font-semibold text-3xl" style={{ color: LIME }}>{v}</div>
                   <div className="text-xs mt-1.5" style={{ color: BODY }}>{l}</div>
