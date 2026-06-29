@@ -21,7 +21,7 @@ export function LoadingScreen({ onDone }: { onDone: () => void }) {
     .to(ref.current, { yPercent: -100, duration: 0.85, ease: "power4.inOut", onComplete: onDone }, "-=0.1");
   }, []);
 
-  const name = "RIDOY.DEV";
+  const name = "KAMRUL.DEV";
 
   return (
     <div ref={ref} className="fixed inset-0 z-[99999] flex flex-col items-center justify-center gap-3" style={{ background: BG }}>
