@@ -29,6 +29,13 @@ export function ExperienceSection() {
           },
         },
       );
+      gsap.to('.ex-live-badge', {
+        scale: 1.07,
+        duration: 1,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+      });
     }, sRef);
     return () => ctx.revert();
   }, []);
@@ -96,7 +103,7 @@ export function ExperienceSection() {
                 <div className='col-span-6 sm:col-span-2'>
                   {item.period.includes('Present') ? (
                     <span
-                      className='inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-mono text-xs font-semibold'
+                      className='ex-live-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-mono text-xs font-semibold'
                       style={{
                         background: `linear-gradient(135deg, ${item.color}28, ${item.color}10)`,
                         color: item.color,
@@ -164,18 +171,16 @@ export function ExperienceSection() {
           ))}
         </div>
 
-        <div className='mt-10 grid grid-cols-12 gap-4 px-7'>
-          <div className='col-span-12 sm:col-start-2 sm:col-span-4'>
-            <a
-              href={CV_PDF_PATH}
-              download={CV_DOWNLOAD_NAME}
-              className='inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 hover:opacity-85 hover:scale-[1.03] group'
-              style={{ background: LIME, color: BG, boxShadow: `0 4px 24px ${LIME}30` }}
-            >
-              Download full résumé
-              <FiArrowUpRight className='w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' />
-            </a>
-          </div>
+        <div className='mt-10 pl-7'>
+          <a
+            href={CV_PDF_PATH}
+            download={CV_DOWNLOAD_NAME}
+            className='inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 hover:opacity-85 hover:scale-[1.03] group'
+            style={{ background: LIME, color: BG, boxShadow: `0 4px 24px ${LIME}30` }}
+          >
+            Download full resume
+            <FiArrowUpRight className='w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' />
+          </a>
         </div>
       </div>
     </section>
