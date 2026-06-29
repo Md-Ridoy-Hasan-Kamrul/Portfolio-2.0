@@ -52,10 +52,10 @@ export function Navbar() {
           style={{ color: TEXT }}
         >
           <span className="font-['Clash_Display'] font-semibold text-xl tracking-tight">
-            <span style={{ color: LIME }}>M</span>R<span style={{ color: LIME }}>K</span>
+            <span style={{ color: LIME }}>M</span>RH<span style={{ color: LIME }}>K</span>
           </span>
           <span className="font-mono text-xs tracking-widest ml-1.5 hidden sm:block" style={{ color: BODY }}>
-            ridoy.dev
+            kamrul.dev
           </span>
         </button>
 
