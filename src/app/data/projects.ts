@@ -44,7 +44,7 @@ export const PROJECTS = [
     category: "Business & Web",
     caption: "Logistics Evolved · Delivery Delivered",
     desc: "UK & Europe logistics platform offering rapid same-day delivery, specialist transport, and end-to-end supply chain solutions. Built for a Wrexham-founded courier company handling nationwide parcel delivery, secure item handling, and scheduled multi-drop routes for e-commerce businesses and individuals.",
-    tags: [],
+    tags: ["React", "React Router", "Tailwind CSS", "Lucide Icons"],
     img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1400&h=780&fit=crop&auto=format",
     live: "https://m19logistics.com/", github: "#", accent: "#38BDF8",
   },
