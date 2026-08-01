@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { FiArrowUpRight } from "react-icons/fi";
-import { SiReact, SiNextdotjs, SiJavascript, SiTailwindcss, SiTypescript } from "react-icons/si";
+import { SiReact, SiNextdotjs, SiJavascript, SiTailwindcss, SiTypescript, SiRedux } from "react-icons/si";
 import { MagneticBtn } from "../common/MagneticBtn";
 import { BG, LIME, MINT, SURFACE, TEXT, BODY } from "../../constants/theme";
 import { CV_PDF_PATH, CV_DOWNLOAD_NAME } from "../../constants/site";
@@ -10,6 +10,7 @@ import developerPhoto from "../../../imports/Gemini_Generated_Image_hkis8khkis8k
 export function HeroSection() {
   const [spot, setSpot] = useState({ x: -9999, y: -9999 });
   const sRef = useRef<HTMLElement>(null);
+  const l0 = useRef<HTMLDivElement>(null);
   const l1 = useRef<HTMLDivElement>(null);
   const l2 = useRef<HTMLDivElement>(null);
   const l3 = useRef<HTMLDivElement>(null);
@@ -20,9 +21,9 @@ export function HeroSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.set([l1.current, l2.current, l3.current], { yPercent: 110 });
+      gsap.set([l0.current, l1.current, l2.current, l3.current], { yPercent: 110 });
       const tl = gsap.timeline({ delay: 2.35 });
-      tl.to([l1.current, l2.current, l3.current], { yPercent: 0, duration: 1.15, stagger: 0.11, ease: "power4.out" })
+      tl.to([l0.current, l1.current, l2.current, l3.current], { yPercent: 0, duration: 1.15, stagger: 0.11, ease: "power4.out" })
         .fromTo(subRef.current, { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.7 }, "-=0.6")
         .fromTo(ctaRef.current, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.55 }, "-=0.5")
         .fromTo(statsRef.current, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.55 }, "-=0.4")
@@ -61,9 +62,10 @@ export function HeroSection() {
 
           <div className="space-y-1 mb-10">
             {[
+              { ref: l0, text: "Md.", gradient: true },
               { ref: l1, text: "RIDOY", gradient: false },
               { ref: l2, text: "HASAN", gradient: true },
-              { ref: l3, text: "KAMRUL.", gradient: false },
+              { ref: l3, text: "KAMRUL", gradient: false },
             ].map(({ ref, text, gradient }) => (
               <div key={text} style={{ overflow: "hidden", lineHeight: 1 }}>
                 <div
@@ -143,6 +145,7 @@ export function HeroSection() {
               { icon: SiNextdotjs,  label: "Next.js",    color: TEXT,      cls: "top-28 -left-24" },
               { icon: SiJavascript, label: "JavaScript",  color: "#F7DF1E", cls: "bottom-36 -left-20" },
               { icon: SiTailwindcss,label: "Tailwind",   color: "#06B6D4", cls: "top-14 -right-20" },
+              { icon: SiRedux,      label: "Redux",      color: "#764ABC", cls: "top-40 -right-24" },
               { icon: SiTypescript, label: "TypeScript",  color: "#3178C6", cls: "bottom-24 -right-24" },
             ].map(({ icon: Icon, label, color, cls }) => (
               <div key={label} className={`h-badge absolute ${cls} hidden 2xl:flex items-center gap-2 px-3 py-2 rounded-xl`}
