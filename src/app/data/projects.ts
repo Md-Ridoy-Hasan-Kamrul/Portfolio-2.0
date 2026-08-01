@@ -64,7 +64,7 @@ export const PROJECTS = [
     desc: "Property intelligence platform covering Nigeria's real estate sector news, market analysis, developer and development tracking, and regulatory insight that gives buyers and investors clearer visibility into pricing and opportunity.",
     tags: ["React", "React Router", "Tailwind CSS", "Lucide Icons"],
     img: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=1400&h=780&fit=crop&auto=format",
-    live: "https://prodev.property-file.com/", github: "#", accent: "#34D399",
+    live: "https://property-file.com", github: "#", accent: "#34D399",
   },
   {
     num: "08", title: "SkyRidge Group", sub: "Real Estate Agency",
