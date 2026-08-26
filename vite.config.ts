@@ -17,7 +17,8 @@ function figmaAssetResolver() {
 
 export default defineConfig({
   plugins: [figmaAssetResolver(), react(), tailwindcss()],
-  base: '/Portfolio-2.0/',
+  // Vercel serves from domain root; GitHub Pages needs the repo subpath.
+  base: process.env.VERCEL ? '/' : '/Portfolio-2.0/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
