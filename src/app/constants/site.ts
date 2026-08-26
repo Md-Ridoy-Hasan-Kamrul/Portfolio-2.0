@@ -1,5 +1,5 @@
-export const CV_PDF_PATH = `${import.meta.env.BASE_URL}Ridoy_Hasan_Kamrul_CV.pdf`;
-export const CV_DOWNLOAD_NAME = "Md_Ridoy_Hasan_Kamrul_CV.pdf";
+export const CV_PDF_PATH = `${import.meta.env.BASE_URL}Ridoy_Hasan_Kamrul_Resumes.pdf`;
+export const CV_DOWNLOAD_NAME = "Md_Ridoy_Hasan_Kamrul_Resume.pdf";
 
 export const CONTACT_EMAIL = "mdridoyhasankamrul@gmail.com";
 export const CONTACT_EMAIL_HREF = `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}&su=Hello%20Ridoy`;
