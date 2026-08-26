@@ -27,17 +27,27 @@ export function ContactSection() {
       toast.error("Please fill in all fields.");
       return;
     }
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      toast.error("Email service is not configured. Add EmailJS keys to .env.");
+      return;
+    }
     setSending(true);
     try {
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        { from_name: form.name, from_email: form.email, message: form.message, reply_to: form.email },
+        {
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          time: new Date().toLocaleString(),
+        },
         { publicKey: EMAILJS_PUBLIC_KEY }
       );
       toast.success("Message sent — I'll get back to you soon!");
       setForm({ name: "", email: "", message: "" });
-    } catch {
+    } catch (err) {
+      console.error("EmailJS error:", err);
       toast.error("Couldn't send your message. Please try again.");
     } finally {
       setSending(false);
