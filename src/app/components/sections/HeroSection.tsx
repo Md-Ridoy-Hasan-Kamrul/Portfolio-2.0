@@ -107,7 +107,7 @@ export function HeroSection() {
           </div>
 
           <div ref={statsRef} className="flex gap-10 mt-12 pt-12" style={{ borderTop: "1px solid rgba(255,255,255,0.05)", opacity: 0 }}>
-            {[["1.6+", "Years exp."], ["50+", "Projects"], ["B.Sc", "CSE · UITS"]].map(([v, l]) => (
+            {[["1.9+", "Years exp."], ["50+", "Projects"], ["B.Sc", "CSE · UITS"]].map(([v, l]) => (
               <div key={l}>
                 <div className="font-['Clash_Display'] font-semibold text-3xl" style={{ color: TEXT }}>{v}</div>
                 <div className="text-xs mt-1" style={{ color: BODY }}>{l}</div>

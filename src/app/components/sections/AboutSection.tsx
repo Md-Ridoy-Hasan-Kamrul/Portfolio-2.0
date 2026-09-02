@@ -3,8 +3,6 @@ import gsap from 'gsap';
 import { LIME, SURFACE, TEXT, BODY } from '../../constants/theme';
 import { useSectionSpacing } from '../../hooks/useSectionSpacing';
 
-//sss
-
 export function AboutSection() {
   const sRef = useRef<HTMLElement>(null);
   const { py, mb } = useSectionSpacing();
@@ -78,7 +76,7 @@ export function AboutSection() {
 
             <div className='mt-10 grid grid-cols-3 gap-4'>
               {[
-                ['1.6+', 'Years'],
+                ['1.9+', 'Years'],
                 ['50+', 'Projects'],
                 ['UITS', 'B.Sc CSE'],
               ].map(([v, l]) => (
@@ -130,18 +128,19 @@ export function AboutSection() {
               className='text-base sm:text-lg leading-[1.85]'
               style={{ color: BODY }}
             >
-              I'm Md. Ridoy Hasan Kamrul a Computer Science graduate (B.Sc in
-              CSE, UITS, Dhaka, 2022) specializing in the MERN stack with a
-              strong focus on frontend development.
+              Frontend Developer specializing in React.js, Next.js, TypeScript,
+              and JavaScript, with a B.Sc. in Computer Science and Engineering
+              from UITS, Dhaka. Experienced in building responsive,
+              user-friendly, and production-ready web applications with Tailwind
+              CSS, Redux, and RESTful APIs.
             </p>
             <p
               className='text-base sm:text-lg leading-[1.85]'
               style={{ color: BODY }}
             >
-              I build responsive, user-friendly web applications that deliver
-              exceptional user experiences. I thrive in both team and
-              independent environments, bringing a problem-solving mindset and a
-              passion for creating impactful digital solutions.
+              Skilled at translating UI designs and client requirements into
+              clean, maintainable interfaces, with a strong focus on
+              performance, accessibility, SEO, and cross-browser compatibility.
             </p>
 
             <div className='mt-6 space-y-3'>
