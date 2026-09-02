@@ -103,8 +103,8 @@ export function AboutSection() {
 
             <div className='mt-10 space-y-3'>
               {[
-                'Front-End Developer at Maktech via Fiverr',
-                'B.Sc in CSE, UITS Dhaka — graduated 2022',
+                'Front-End Developer at Maktech',
+                'B.Sc in CSE, UITS Dhaka, Graduated in 2022',
                 'Open to freelance & full-time opportunities globally',
               ].map((item) => (
                 <div key={item} className='flex items-start gap-3'>
