@@ -12,7 +12,7 @@ export function ContactSection() {
   const sRef = useRef<HTMLElement>(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
-  const { py } = useSectionSpacing();
+  const { py, mb } = useSectionSpacing();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -56,13 +56,17 @@ export function ContactSection() {
 
   return (
     <section ref={sRef} id="contact" className="relative" style={{ paddingTop: py, paddingBottom: py }}>
-      <div className="absolute top-0 inset-x-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${LIME}25, transparent)` }} />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-5" style={{ marginBottom: mb }}>
+          <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: LIME }}>
+            06 / Contact
+          </span>
+          <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
+        </div>
+
         <div className="ct-inner opacity-0 grid lg:grid-cols-2 gap-20 items-start">
           <div>
-            <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: LIME }}>06 / Contact</span>
-            <h2 className="font-['Clash_Display'] font-semibold mt-6 leading-[0.9] text-5xl sm:text-6xl md:text-7xl lg:text-8xl" style={{ color: TEXT }}>
+            <h2 className="font-['Clash_Display'] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl lg:text-8xl" style={{ color: TEXT }}>
               Let's
               <br />
               <span style={{ color: LIME }}>build</span>
