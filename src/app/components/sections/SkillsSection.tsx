@@ -55,7 +55,7 @@ export function SkillsSection() {
             className='font-mono text-xs tracking-[0.3em] uppercase'
             style={{ color: LIME }}
           >
-            03 / Skills
+            02 / Skills
           </span>
           <div
             className='flex-1 h-px'
