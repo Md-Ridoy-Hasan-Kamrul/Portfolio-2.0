@@ -61,7 +61,7 @@ export function SkillsSection() {
               Technical <span style={{ color: LIME }}>expertise</span>
             </h2>
             <p className="mt-4 text-base sm:text-lg leading-relaxed max-w-xl" style={{ color: BODY }}>
-              Production-ready frontend stack used across live client projects —
+              Production-ready frontend stack used across live client projects
               from UI architecture to deployment.
             </p>
           </div>
