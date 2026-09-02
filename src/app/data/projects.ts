@@ -75,4 +75,13 @@ export const PROJECTS = [
     img: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1400&h=780&fit=crop&auto=format",
     live: "https://skyridgegroup.com", github: "#", accent: "#F472B6",
   },
+  {
+    num: "09", title: "Dr. T UX Coaching", sub: "Every Stage of Your UX Career",
+    category: "Business & Web",
+    caption: "1:1 UX Coaching · Next.js",
+    desc: "Expert 1:1 UX coaching to help you build a standout portfolio, master interviews, and launch your design career — with Lenis smooth scrolling and Framer Motion transitions throughout.",
+    tags: ["Next.js", "Tailwind CSS", "Lenis", "Framer Motion"],
+    img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1400&h=780&fit=crop&auto=format",
+    live: "https://troyabel-gules.vercel.app", github: "#", accent: "#A78BFA",
+  },
 ];
