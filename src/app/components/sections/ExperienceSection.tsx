@@ -149,14 +149,22 @@ export function ExperienceSection() {
                   ))}
                 </div>
 
-                {/* Description — aligns with title column */}
-                {active === i && (
-                  <p
-                    className='md:row-start-2 md:col-start-2 md:col-span-3 text-base sm:text-lg leading-relaxed'
+                {/* Description bullets — aligns with title column */}
+                {active === i && item.bullets?.length > 0 && (
+                  <ul
+                    className='md:row-start-2 md:col-start-2 md:col-span-3 space-y-3 text-base sm:text-lg leading-relaxed list-none'
                     style={{ color: BODY }}
                   >
-                    {item.desc}
-                  </p>
+                    {item.bullets.map((bullet) => (
+                      <li key={bullet} className='flex gap-3'>
+                        <span
+                          className='mt-2.5 w-1.5 h-1.5 rounded-full shrink-0'
+                          style={{ background: item.color }}
+                        />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
                 )}
               </div>
             </div>
