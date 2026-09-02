@@ -70,20 +70,21 @@ export function ExperienceSection() {
               }}
               onClick={() => setActive(i)}
             >
-              <div className='grid grid-cols-12 gap-4 items-center'>
-                <div className='col-span-1'>
+              <div className='grid grid-cols-1 md:grid-cols-[4.5rem_1fr_auto_auto] md:grid-rows-[auto_auto] gap-x-6 gap-y-5 md:items-center'>
+                {/* 01 */}
+                <div className='md:row-start-1 md:col-start-1 flex items-center md:self-center'>
                   <span
-                    className="font-['Clash_Display'] font-semibold text-5xl transition-all duration-300"
+                    className="font-['Clash_Display'] font-semibold text-5xl leading-none transition-all duration-300"
                     style={{
-                      color:
-                        active === i ? item.color : 'rgba(255,255,255,0.08)',
+                      color: active === i ? item.color : 'rgba(255,255,255,0.08)',
                     }}
                   >
                     {item.num}
                   </span>
                 </div>
 
-                <div className='col-span-12 sm:col-span-4'>
+                {/* Company + role */}
+                <div className='md:row-start-1 md:col-start-2 min-w-0'>
                   <div
                     className='font-mono text-xs tracking-widest mb-1 transition-colors duration-300'
                     style={{ color: active === i ? item.color : BODY }}
@@ -91,17 +92,18 @@ export function ExperienceSection() {
                     {item.company}
                   </div>
                   <h3
-                    className="font-['Clash_Display'] font-semibold text-lg"
+                    className="font-['Clash_Display'] font-semibold text-lg leading-tight"
                     style={{ color: TEXT }}
                   >
                     {item.role}
                   </h3>
                 </div>
 
-                <div className='col-span-6 sm:col-span-2'>
+                {/* Period */}
+                <div className='md:row-start-1 md:col-start-3 flex md:justify-center shrink-0'>
                   {item.period.includes('Present') ? (
                     <span
-                      className='relative inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-mono text-xs font-semibold overflow-hidden'
+                      className='relative inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-mono text-xs font-semibold overflow-hidden whitespace-nowrap'
                       style={{
                         background: `linear-gradient(135deg, ${item.color}28, ${item.color}10)`,
                         color: item.color,
@@ -118,12 +120,9 @@ export function ExperienceSection() {
                     </span>
                   ) : (
                     <span
-                      className='inline-flex items-center px-2.5 py-1 rounded-md font-mono text-xs transition-all duration-300'
+                      className='inline-flex items-center px-2.5 py-1 rounded-md font-mono text-xs whitespace-nowrap transition-all duration-300'
                       style={{
-                        background:
-                          active === i
-                            ? `${item.color}12`
-                            : 'rgba(255,255,255,0.04)',
+                        background: active === i ? `${item.color}12` : 'rgba(255,255,255,0.04)',
                         color: active === i ? item.color : BODY,
                         border: `1px solid ${active === i ? item.color + '22' : 'rgba(255,255,255,0.04)'}`,
                       }}
@@ -133,16 +132,14 @@ export function ExperienceSection() {
                   )}
                 </div>
 
-                <div className='col-span-6 sm:col-span-5 flex flex-wrap gap-2 justify-end'>
+                {/* Tags */}
+                <div className='md:row-start-1 md:col-start-4 flex flex-wrap gap-2 md:justify-end shrink-0'>
                   {item.stats.map((s) => (
                     <span
                       key={s}
-                      className='px-2.5 py-1 rounded-md font-mono text-xs transition-all duration-300'
+                      className='px-2.5 py-1 rounded-md font-mono text-xs whitespace-nowrap transition-all duration-300'
                       style={{
-                        background:
-                          active === i
-                            ? `${item.color}12`
-                            : 'rgba(255,255,255,0.04)',
+                        background: active === i ? `${item.color}12` : 'rgba(255,255,255,0.04)',
                         color: active === i ? item.color : BODY,
                         border: `1px solid ${active === i ? item.color + '22' : 'rgba(255,255,255,0.04)'}`,
                       }}
@@ -151,26 +148,22 @@ export function ExperienceSection() {
                     </span>
                   ))}
                 </div>
-              </div>
 
-              {active === i && (
-                <div
-                  className='mt-5'
-                  style={{ paddingLeft: 'calc(8.33% + 16px)' }}
-                >
+                {/* Description — aligns with title column */}
+                {active === i && (
                   <p
-                    className='text-base sm:text-lg leading-relaxed'
+                    className='md:row-start-2 md:col-start-2 md:col-span-3 text-base sm:text-lg leading-relaxed'
                     style={{ color: BODY }}
                   >
                     {item.desc}
                   </p>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           ))}
         </div>
 
-        <div className='mt-10 pl-7'>
+        <div className='mt-10'>
           <a
             href={CV_PDF_PATH}
             download={CV_DOWNLOAD_NAME}
