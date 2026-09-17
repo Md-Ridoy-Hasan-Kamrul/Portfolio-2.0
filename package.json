@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "vite build",
-    "dev": "vite",
+    "build": "node api.js && vite build",
+    "dev": "node api.js && vite",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
