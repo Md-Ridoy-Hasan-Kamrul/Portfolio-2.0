@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { FiMenu, FiX, FiMail } from "react-icons/fi";
 import { BG, LIME, TEXT, BODY } from "../../constants/theme";
 import { CONTACT_EMAIL, CONTACT_EMAIL_HREF } from "../../constants/site";
+import { scrollToId, scrollToTop } from "../../hooks/useLenis";
 
 /** Same order as reference navbar: Skill → Experiences → Projects → About → Contact */
 const NAV_LINKS = [
@@ -40,7 +41,7 @@ export function Navbar() {
 
   const go = (id: string) => {
     setOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    scrollToId(id);
   };
 
   const linkBtn = (id: string, label: string, className = "") => (
@@ -72,7 +73,7 @@ export function Navbar() {
         {/* Logo — MR lime, HK white, kamrul.dev mono */}
         <button
           type="button"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={() => scrollToTop()}
           className="flex items-center gap-2 shrink-0 z-10"
           style={{ color: TEXT }}
         >

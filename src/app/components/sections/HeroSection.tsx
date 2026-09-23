@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { FiArrowUpRight } from "react-icons/fi";
-import { SiReact, SiNextdotjs, SiJavascript, SiTailwindcss, SiTypescript, SiRedux } from "react-icons/si";
+import { FiArrowUpRight, FiBox } from "react-icons/fi";
+import { SiReact, SiNextdotjs, SiJavascript, SiTailwindcss, SiTypescript, SiRedux, SiAstro, SiSvelte, SiReactquery } from "react-icons/si";
 import { MagneticBtn } from "../common/MagneticBtn";
 import { BG, LIME, MINT, SURFACE, TEXT, BODY } from "../../constants/theme";
 import { CV_PDF_PATH, CV_DOWNLOAD_NAME } from "../../constants/site";
+import { scrollToId } from "../../hooks/useLenis";
 import developerPhoto from "../../../imports/Gemini_Generated_Image_hkis8khkis8khkis.png";
 
 export function HeroSection() {
@@ -28,7 +29,24 @@ export function HeroSection() {
         .fromTo(ctaRef.current, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.55 }, "-=0.5")
         .fromTo(statsRef.current, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.55 }, "-=0.4")
         .fromTo(imgRef.current, { opacity: 0, scale: 0.94, x: 24 }, { opacity: 1, scale: 1, x: 0, duration: 1.2, ease: "power3.out" }, 0.25)
-        .fromTo(".h-badge", { opacity: 0, y: 10, scale: 0.82 }, { opacity: 1, y: 0, scale: 1, stagger: 0.09, ease: "back.out(1.7)" }, "-=0.7");
+        .fromTo(
+          ".h-badge",
+          { opacity: 0, y: 10, scale: 0.82 },
+          { opacity: 1, y: 0, scale: 1, stagger: 0.09, ease: "back.out(1.7)" },
+          "-=0.7"
+        )
+        .add(() => {
+          gsap.utils.toArray<HTMLElement>(".h-badge").forEach((el, i) => {
+            gsap.to(el, {
+              y: i % 2 === 0 ? -9 : 9,
+              duration: 2.1 + (i % 5) * 0.28,
+              ease: "sine.inOut",
+              yoyo: true,
+              repeat: -1,
+              delay: i * 0.12,
+            });
+          });
+        });
     }, sRef);
     return () => ctx.revert();
   }, []);
@@ -92,7 +110,7 @@ export function HeroSection() {
             <MagneticBtn
               className="cursor-pointer flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold transition-opacity hover:opacity-85"
               style={{ background: LIME, color: BG }}
-              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => scrollToId("projects")}
             >
               View My Work <FiArrowUpRight className="w-4 h-4" />
             </MagneticBtn>
@@ -141,17 +159,35 @@ export function HeroSection() {
             </div>
 
             {[
-              { icon: SiReact,      label: "React",      color: "#61DAFB", cls: "top-6 -left-20" },
-              { icon: SiNextdotjs,  label: "Next.js",    color: TEXT,      cls: "top-28 -left-24" },
-              { icon: SiJavascript, label: "JavaScript",  color: "#F7DF1E", cls: "bottom-36 -left-20" },
-              { icon: SiTailwindcss,label: "Tailwind",   color: "#06B6D4", cls: "top-14 -right-20" },
-              { icon: SiRedux,      label: "Redux",      color: "#764ABC", cls: "top-40 -right-24" },
-              { icon: SiTypescript, label: "TypeScript",  color: "#3178C6", cls: "bottom-24 -right-24" },
-            ].map(({ icon: Icon, label, color, cls }) => (
-              <div key={label} className={`h-badge absolute ${cls} hidden 2xl:flex items-center gap-2 px-3 py-2 rounded-xl`}
-                style={{ background: SURFACE, border: "1px solid rgba(255,255,255,0.07)", backdropFilter: "blur(8px)", opacity: 0 }}>
-                <Icon style={{ color }} className="w-3.5 h-3.5 flex-shrink-0" />
-                <span className="font-mono text-xs" style={{ color: TEXT }}>{label}</span>
+              { icon: SiAstro,      label: "Astro",      color: "#FF5D01", cls: "-top-3 left-6",       rot: -8 },
+              { icon: SiSvelte,     label: "Svelte",     color: "#FF3E00", cls: "-top-3 right-6",      rot: 7 },
+              { icon: SiReact,      label: "React",      color: "#61DAFB", cls: "top-6 -left-20",      rot: -6 },
+              { icon: SiNextdotjs,  label: "Next.js",    color: TEXT,      cls: "top-28 -left-24",     rot: 5 },
+              { icon: SiJavascript, label: "JavaScript",  color: "#F7DF1E", cls: "bottom-36 -left-20",  rot: -4 },
+              { icon: SiTailwindcss,label: "Tailwind",   color: "#06B6D4", cls: "top-14 -right-20",    rot: 6 },
+              { icon: SiRedux,      label: "Redux",      color: "#764ABC", cls: "top-40 -right-24",    rot: -5 },
+              { icon: SiTypescript, label: "TypeScript",  color: "#3178C6", cls: "bottom-24 -right-24", rot: 4 },
+              { icon: SiReactquery, label: "TanStack",   color: "#FF4154", cls: "-bottom-3 left-4",    rot: 8 },
+              { icon: FiBox,        label: "Zustand",    color: "#F59E0B", cls: "-bottom-3 right-4",   rot: -7 },
+            ].map(({ icon: Icon, label, color, cls, rot }) => (
+              <div
+                key={label}
+                className={`h-badge absolute ${cls} hidden 2xl:block`}
+                style={{ opacity: 0 }}
+              >
+                <div
+                  className="flex items-center gap-2 px-3 py-2 rounded-xl"
+                  style={{
+                    background: SURFACE,
+                    border: "1px solid rgba(255,255,255,0.07)",
+                    backdropFilter: "blur(8px)",
+                    transform: `rotate(${rot}deg)`,
+                    boxShadow: "0 8px 24px rgba(0,0,0,0.35)",
+                  }}
+                >
+                  <Icon style={{ color }} className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span className="font-mono text-xs" style={{ color: TEXT }}>{label}</span>
+                </div>
               </div>
             ))}
           </div>

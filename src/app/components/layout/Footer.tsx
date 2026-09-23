@@ -3,6 +3,7 @@ import { FiGithub, FiArrowUp } from "react-icons/fi";
 import { FaLinkedinIn, FaFacebookF, FaWhatsapp } from "react-icons/fa";
 import { BG, LIME, TEXT, BODY } from "../../constants/theme";
 import { GITHUB_HREF, LINKEDIN_HREF, FACEBOOK_HREF, WHATSAPP_HREF } from "../../constants/site";
+import { scrollToTop } from "../../hooks/useLenis";
 
 function spinHover(e: React.MouseEvent<HTMLElement>, color: string, leaving: boolean) {
   gsap.to(e.currentTarget, leaving
@@ -65,7 +66,7 @@ export function Footer({ footerRef }: { footerRef: React.RefObject<HTMLElement> 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex flex-col items-center gap-5 mb-8">
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => scrollToTop()}
             aria-label="Back to top"
             className="w-10 h-10 rounded-full flex items-center justify-center mb-1"
             style={{ border: `1px solid ${LIME}35`, color: LIME, background: `${LIME}0a` }}

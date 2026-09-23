@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import "lenis/dist/lenis.css";
 import { BG, LIME, TEXT } from "./constants/theme";
 import { useFooterReveal } from "./hooks/useFooterReveal";
+import { useLenis } from "./hooks/useLenis";
 import { Toaster } from "./components/common/Toast";
 import { GrainOverlay } from "./components/common/GrainOverlay";
 import { CustomCursor } from "./components/common/CustomCursor";
@@ -20,13 +22,16 @@ import { ContactSection } from "./components/sections/ContactSection";
 export default function App() {
   const [loaded, setLoaded] = useState(false);
   const { footerRef, footerEndRef, footerHeight, footerVisible } = useFooterReveal();
+  useLenis();
 
   useEffect(() => {
     document.documentElement.classList.add("dark");
     const style = document.createElement("style");
     style.textContent = `
       *, *::before, *::after { box-sizing: border-box; }
-      body { font-family: 'Inter', sans-serif; background: ${BG}; color: ${TEXT}; scroll-behavior: smooth; }
+      body { font-family: 'Inter', sans-serif; background: ${BG}; color: ${TEXT}; }
+      html.lenis, html.lenis body { height: auto; }
+      .lenis.lenis-smooth { scroll-behavior: auto !important; }
       ::-webkit-scrollbar { width: 3px; }
       ::-webkit-scrollbar-track { background: ${BG}; }
       ::-webkit-scrollbar-thumb { background: ${LIME}35; border-radius: 99px; }
