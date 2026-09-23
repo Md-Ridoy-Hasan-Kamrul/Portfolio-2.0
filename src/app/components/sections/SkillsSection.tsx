@@ -95,7 +95,7 @@ export function SkillsSection() {
                 el.style.background = SURFACE;
               }}
             >
-              <div className="grid grid-cols-1 md:grid-cols-[9rem_1fr] lg:grid-cols-[10.5rem_1fr] gap-4 md:gap-8 md:items-start">
+              <div className="grid grid-cols-1 md:grid-cols-[11rem_1fr] lg:grid-cols-[13.5rem_1fr] gap-4 md:gap-8 md:items-start">
                 {/* Category label */}
                 <div className="flex md:flex-col md:pt-1 gap-3 md:gap-2 items-center md:items-start">
                   <span
