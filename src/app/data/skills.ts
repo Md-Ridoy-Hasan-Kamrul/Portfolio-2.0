@@ -20,6 +20,7 @@ import {
   SiRailway,
   SiAstro,
   SiSvelte,
+  SiVuedotjs,
   SiReactquery,
   SiVitest,
   SiTestinglibrary,
@@ -66,6 +67,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       { name: "React.js", icon: SiReact, color: "#61DAFB" },
       { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
+      { name: "Vue.js", icon: SiVuedotjs, color: "#42B883" },
       { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
       { name: "Astro 7", icon: SiAstro, color: "#FF5D01" },
       { name: "Svelte 5", icon: SiSvelte, color: "#FF3E00" },
