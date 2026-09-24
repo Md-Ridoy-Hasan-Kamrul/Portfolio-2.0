@@ -49,7 +49,7 @@ export function Navbar() {
       key={id}
       type="button"
       onClick={() => go(id)}
-      className={`text-sm font-medium tracking-wide transition-colors duration-200 ${className}`}
+      className={`cursor-pointer text-sm font-medium tracking-wide transition-colors duration-200 ${className}`}
       style={{ color: TEXT }}
       onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = LIME; }}
       onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = TEXT; }}
@@ -74,7 +74,7 @@ export function Navbar() {
         <button
           type="button"
           onClick={() => scrollToTop()}
-          className="flex items-center gap-2 shrink-0 z-10"
+          className="cursor-pointer flex items-center gap-2 shrink-0 z-10"
           style={{ color: TEXT }}
         >
           <span className="font-['Clash_Display'] font-semibold text-xl tracking-tight leading-none">
@@ -98,7 +98,7 @@ export function Navbar() {
           href={CONTACT_EMAIL_HREF}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:flex items-center shrink-0 z-10 text-xs lg:text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 whitespace-nowrap"
+          className="cursor-pointer hidden md:flex items-center shrink-0 z-10 text-xs lg:text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 whitespace-nowrap"
           style={{ color: TEXT, border: "1px solid rgba(255,255,255,0.12)" }}
           onMouseEnter={(e) => {
             const el = e.currentTarget as HTMLElement;
@@ -114,7 +114,7 @@ export function Navbar() {
           {CONTACT_EMAIL}
         </a>
 
-        <button type="button" className="md:hidden z-10" onClick={() => setOpen(!open)} style={{ color: TEXT }}>
+        <button type="button" className="md:hidden z-10 cursor-pointer" onClick={() => setOpen(!open)} style={{ color: TEXT }}>
           {open ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
         </button>
       </div>
@@ -135,7 +135,7 @@ export function Navbar() {
                 key={id}
                 type="button"
                 onClick={() => go(id)}
-                className="flex items-center gap-3 px-6 py-3 rounded-full text-xl font-medium tracking-wide transition-all duration-300"
+                className="cursor-pointer flex items-center gap-3 px-6 py-3 rounded-full text-xl font-medium tracking-wide transition-all duration-300"
                 style={{ color: BODY, opacity: 0 }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget as HTMLElement;
@@ -161,7 +161,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="flex items-center gap-2 mt-4 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300"
+              className="cursor-pointer flex items-center gap-2 mt-4 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300"
               style={{ color: TEXT, border: "1px solid rgba(255,255,255,0.12)", opacity: 0 }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
