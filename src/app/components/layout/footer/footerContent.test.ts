@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 import {
   CONTACT_EMAIL,
   CV_PDF_PATH,
-  FACEBOOK_HREF,
   GITHUB_HREF,
   LINKEDIN_HREF,
   WHATSAPP_HREF,
@@ -39,11 +38,11 @@ describe("footer content", () => {
     expect(byTitle.Work).toEqual([
       { label: "Projects", href: "projects", kind: "section" },
       { label: "Resume", href: CV_PDF_PATH, kind: "download" },
+      { label: "Let's talk", href: "contact", kind: "section" },
     ]);
     expect(byTitle.Connect).toEqual([
       { label: "GitHub", href: GITHUB_HREF, kind: "external" },
       { label: "LinkedIn", href: LINKEDIN_HREF, kind: "external" },
-      { label: "Facebook", href: FACEBOOK_HREF, kind: "external" },
       { label: "WhatsApp", href: WHATSAPP_HREF, kind: "external" },
     ]);
   });

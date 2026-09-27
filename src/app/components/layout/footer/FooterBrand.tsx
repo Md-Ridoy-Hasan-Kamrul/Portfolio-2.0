@@ -1,3 +1,4 @@
+import { ShaderButtons } from "../../common/ShaderButtons";
 import { LIME, TEXT } from "../../../constants/theme";
 import { scrollToId, scrollToTop } from "../../../hooks/useLenis";
 import { FOOTER_CTA_LABEL, FOOTER_CTA_TARGET, FOOTER_TAGLINE } from "./footerContent";
@@ -51,9 +52,9 @@ export function FooterBrand({ metrics }: { metrics: FooterMetrics }) {
       >
         {FOOTER_TAGLINE}
       </p>
-      <button type="button" className="footer-cta w-fit" data-cta={FOOTER_CTA_TARGET} onClick={() => scrollToId(FOOTER_CTA_TARGET)}>
+      <ShaderButtons onClick={() => scrollToId(FOOTER_CTA_TARGET)}>
         {FOOTER_CTA_LABEL}
-      </button>
+      </ShaderButtons>
     </div>
   );
 }

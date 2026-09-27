@@ -59,7 +59,7 @@ describe("Breathing footer", () => {
     document.body.appendChild(contact);
 
     const host = renderFooter(VIEWPORT.laptop);
-    const button = host.querySelector("button[data-cta='contact']") as HTMLButtonElement;
+    const button = [...host.querySelectorAll("button")].find((el) => el.textContent?.includes("Let's talk")) as HTMLButtonElement;
     act(() => {
       button.click();
     });
