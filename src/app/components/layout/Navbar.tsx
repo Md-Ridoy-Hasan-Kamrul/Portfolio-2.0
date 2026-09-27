@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { BG, LIME, MINT, TEXT } from "../../constants/theme";
+import { LIME, MINT, TEXT } from "../../constants/theme";
 import { scrollToId, scrollToTop } from "../../hooks/useLenis";
 
 /** Liquid Gold Navbar layout: four links + enquire CTA */
@@ -145,16 +145,7 @@ export function Navbar() {
                 {WORDMARK.map(({ ch, accent }) => (
                   <span
                     key={ch}
-                    style={
-                      accent
-                        ? {
-                            background: `linear-gradient(130deg, ${LIME} 0%, ${MINT} 100%)`,
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                            backgroundClip: "text",
-                          }
-                        : { color: TEXT }
-                    }
+                    style={accent ? { color: LIME } : { color: TEXT }}
                   >
                     {ch}
                   </span>
