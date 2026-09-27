@@ -132,22 +132,23 @@ export function ExperienceSection() {
                   )}
                 </div>
 
-                {/* Tags */}
-                <div className='md:row-start-1 md:col-start-4 flex flex-wrap gap-2 md:justify-end shrink-0'>
-                  {item.stats.map((s) => (
-                    <span
-                      key={s}
-                      className='px-2.5 py-1 rounded-md font-mono text-xs whitespace-nowrap transition-all duration-300'
-                      style={{
-                        background: active === i ? `${item.color}12` : 'rgba(255,255,255,0.04)',
-                        color: active === i ? item.color : BODY,
-                        border: `1px solid ${active === i ? item.color + '22' : 'rgba(255,255,255,0.04)'}`,
-                      }}
-                    >
-                      {s}
-                    </span>
-                  ))}
-                </div>
+                {item.stats.length > 0 && (
+                  <div className='md:row-start-1 md:col-start-4 flex flex-wrap gap-2 md:justify-end shrink-0'>
+                    {item.stats.map((s) => (
+                      <span
+                        key={s}
+                        className='px-2.5 py-1 rounded-md font-mono text-xs whitespace-nowrap transition-all duration-300'
+                        style={{
+                          background: active === i ? `${item.color}12` : 'rgba(255,255,255,0.04)',
+                          color: active === i ? item.color : BODY,
+                          border: `1px solid ${active === i ? item.color + '22' : 'rgba(255,255,255,0.04)'}`,
+                        }}
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 {/* Description bullets — aligns with title column */}
                 {active === i && item.bullets?.length > 0 && (

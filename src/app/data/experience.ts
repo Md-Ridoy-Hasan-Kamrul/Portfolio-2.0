@@ -13,7 +13,7 @@ export const EXPERIENCE = [
       "Executed robust API integrations (Axios, TanStack Query) and state management (Redux, Zustand), while maintaining version control via Git/GitHub for efficient CI/CD deployments (e.g., Coolify).",
       "Enhanced overall UI/UX performance by implementing fluid web animations (Framer Motion, GSAP, Lenis) and ensuring code reliability through Lighthouse optimizations and automated testing (Jest/Playwright).",
     ],
-    stats: ["Currently Active", "Fiverr Clients", "React & Next.js"],
+    stats: [],
   },
   // {
   //   num: "02", role: "Researcher", company: "Business Process Outsourcing",
