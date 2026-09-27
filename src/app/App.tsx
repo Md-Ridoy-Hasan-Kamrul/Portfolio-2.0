@@ -35,7 +35,6 @@ export default function App() {
       ::-webkit-scrollbar { width: 3px; }
       ::-webkit-scrollbar-track { background: ${BG}; }
       ::-webkit-scrollbar-thumb { background: ${LIME}35; border-radius: 99px; }
-      @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
       @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-9px); } }
     `;
     document.head.appendChild(style);

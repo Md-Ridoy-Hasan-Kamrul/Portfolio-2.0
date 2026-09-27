@@ -1,8 +1,8 @@
-import { MINT, PURPLE } from "../constants/theme";
+import { LIME, MINT, PURPLE } from "../constants/theme";
 
 export const PROJECT_CATEGORIES = ["All", "Real Estate", "SaaS & AI", "Business & Web"] as const;
 
-/** Same order as the resume: CoorDeck, Dr. T, layls, MakTech, Elyxa, Rain, Skyridge, then the rest. */
+/** Resume order first, then every other shipped project. Nothing from the site list is dropped. */
 export const PROJECTS = [
   {
     num: "01", title: "CoorDeck", sub: "Technologies",
@@ -93,5 +93,14 @@ export const PROJECTS = [
     tags: ["React", "React Router", "Tailwind CSS", "Lucide Icons"],
     img: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=1400&h=780&fit=crop&auto=format",
     live: "https://property-file.com", github: "#", accent: "#34D399",
+  },
+  {
+    num: "11", title: "Q Global Living", sub: "Real Estate Platform",
+    category: "Real Estate",
+    caption: "Full-Stack Marketplace · Next.js 16",
+    desc: "Full-stack real estate marketplace with internationalization (EN/FR), property listings, event registration, admin dashboards, and escrow-protected transactions. React Compiler compliant with custom auth flows for admin/client/partner roles.",
+    tags: ["Next.js 16", "React 19", "TypeScript", "Tailwind v4", "i18n"],
+    img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1400&h=780&fit=crop&auto=format",
+    live: "https://qgloballiving.com/en", github: "#", accent: LIME,
   },
 ];
