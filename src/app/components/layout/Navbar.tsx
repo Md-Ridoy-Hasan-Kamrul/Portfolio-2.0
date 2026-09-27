@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { BG, LIME, MINT, TEXT } from "../../constants/theme";
 import { scrollToId, scrollToTop } from "../../hooks/useLenis";
 
 /** Liquid Gold Navbar layout: four links + enquire CTA */
@@ -12,7 +13,12 @@ const NAV_LINKS = [
 
 const CREAM = "rgb(245, 238, 224)";
 const INK = "rgb(13, 11, 9)";
-const GOLD = "rgb(212, 178, 116)";
+const WORDMARK = [
+  { ch: "M", accent: true },
+  { ch: "R", accent: false },
+  { ch: "H", accent: true },
+  { ch: "K", accent: false },
+] as const;
 
 function RollLabel({
   label,
@@ -92,8 +98,8 @@ export function Navbar() {
         className="relative w-full max-w-[700px] p-[2px] overflow-hidden transition-[border-radius] duration-500"
         style={{
           borderRadius: radius,
-          background: "linear-gradient(180deg, rgb(122, 82, 37) 0%, rgb(58, 39, 18) 55%, rgb(138, 90, 43) 100%)",
-          boxShadow: "0px 14px 60px 0px rgba(201, 164, 92, 0.3), 0px 2px 12px 0px rgba(0, 0, 0, 0.35)",
+          background: `linear-gradient(180deg, #3d6b16 0%, #14240c 55%, #4a8a1c 100%)`,
+          boxShadow: `0px 14px 60px 0px ${LIME}4d, 0px 2px 12px 0px rgba(0, 0, 0, 0.35)`,
           ["--gx" as string]: "50%",
           ["--gy" as string]: "0px",
         }}
@@ -101,15 +107,13 @@ export function Navbar() {
         <div
           className="lg-gold-spin pointer-events-none absolute left-1/2 top-1/2 h-[240%] w-[240%]"
           style={{
-            background:
-              "conic-gradient(from 0deg, rgb(110, 66, 24), rgb(138, 90, 43), rgb(201, 164, 92), rgb(245, 229, 192), rgb(224, 179, 106), rgb(201, 164, 92), rgb(138, 90, 43), rgb(110, 66, 24))",
+            background: `conic-gradient(from 0deg, #1c3d12, #3d7a18, ${LIME}, #e8ffc4, ${MINT}, ${LIME}, #3d7a18, #1c3d12)`,
           }}
         />
         <div
           className="pointer-events-none absolute inset-0"
           style={{
-            background:
-              "radial-gradient(110px circle at var(--gx) var(--gy), rgba(245, 229, 192, 0.95), transparent 62%)",
+            background: `radial-gradient(110px circle at var(--gx) var(--gy), ${LIME}f2, transparent 62%)`,
           }}
         />
 
@@ -120,8 +124,7 @@ export function Navbar() {
           <div
             className="pointer-events-none absolute inset-0"
             style={{
-              background:
-                "radial-gradient(120px 36px at var(--gx) 0px, rgba(224, 179, 106, 0.34), transparent 70%)",
+              background: `radial-gradient(120px 36px at var(--gx) 0px, ${LIME}57, transparent 70%)`,
             }}
           />
 
@@ -136,10 +139,26 @@ export function Navbar() {
               aria-label="Back to top"
             >
               <span
-                className="block select-none italic font-medium text-[22px] lg:text-[24px] leading-none"
-                style={{ fontFamily: '"Bodoni Moda", serif', color: CREAM }}
+                className="flex select-none italic font-medium text-[22px] lg:text-[24px] leading-none"
+                style={{ fontFamily: '"Bodoni Moda", serif' }}
               >
-                MRHK
+                {WORDMARK.map(({ ch, accent }) => (
+                  <span
+                    key={ch}
+                    style={
+                      accent
+                        ? {
+                            background: `linear-gradient(130deg, ${LIME} 0%, ${MINT} 100%)`,
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                            backgroundClip: "text",
+                          }
+                        : { color: TEXT }
+                    }
+                  >
+                    {ch}
+                  </span>
+                ))}
               </span>
             </button>
 
@@ -167,7 +186,7 @@ export function Navbar() {
                 className="group cursor-pointer hidden lg:flex items-center rounded-full px-5 py-3 transition-colors duration-500"
                 style={{ background: CREAM }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = GOLD;
+                  e.currentTarget.style.background = LIME;
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = CREAM;
@@ -234,8 +253,14 @@ export function Navbar() {
                 <button
                   type="button"
                   onClick={() => go("contact")}
-                  className="cursor-pointer mt-3 self-start rounded-full px-5 py-3 font-semibold uppercase text-[11px] tracking-[1.4px]"
+                  className="cursor-pointer mt-3 self-start rounded-full px-5 py-3 font-semibold uppercase text-[11px] tracking-[1.4px] transition-colors duration-500"
                   style={{ background: CREAM, color: "rgb(20, 16, 11)" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = LIME;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = CREAM;
+                  }}
                 >
                   Enquire
                 </button>
