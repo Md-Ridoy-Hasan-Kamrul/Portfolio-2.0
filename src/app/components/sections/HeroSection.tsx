@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { FiArrowUpRight, FiBox } from "react-icons/fi";
 import { SiReact, SiNextdotjs, SiJavascript, SiTailwindcss, SiTypescript, SiRedux, SiAstro, SiSvelte, SiReactquery } from "react-icons/si";
-import { MagneticBtn } from "../common/MagneticBtn";
+import { ShaderButtons } from "../common/ShaderButtons";
 import { BG, LIME, MINT, SURFACE, TEXT, BODY } from "../../constants/theme";
 import { CV_PDF_PATH, CV_DOWNLOAD_NAME } from "../../constants/site";
 import { scrollToId } from "../../hooks/useLenis";
@@ -107,21 +107,12 @@ export function HeroSection() {
           </p>
 
           <div ref={ctaRef} className="flex flex-wrap gap-4" style={{ opacity: 0 }}>
-            <MagneticBtn
-              className="cursor-pointer flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold transition-opacity hover:opacity-85"
-              style={{ background: LIME, color: BG }}
-              onClick={() => scrollToId("projects")}
-            >
-              View My Work <FiArrowUpRight className="w-4 h-4" />
-            </MagneticBtn>
-            <a
-              href={CV_PDF_PATH}
-              download={CV_DOWNLOAD_NAME}
-              className="flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-medium transition-all hover:opacity-70"
-              style={{ color: TEXT, border: "1px solid rgba(255,255,255,0.1)" }}
-            >
-              Download CV
-            </a>
+            <ShaderButtons onClick={() => scrollToId("projects")}>
+              View My Work <FiArrowUpRight className="h-4 w-4" />
+            </ShaderButtons>
+            <ShaderButtons href={CV_PDF_PATH} download={CV_DOWNLOAD_NAME}>
+              Download CV <FiArrowUpRight className="h-4 w-4" />
+            </ShaderButtons>
           </div>
 
           <div ref={statsRef} className="flex gap-10 mt-12 pt-12" style={{ borderTop: "1px solid rgba(255,255,255,0.05)", opacity: 0 }}>

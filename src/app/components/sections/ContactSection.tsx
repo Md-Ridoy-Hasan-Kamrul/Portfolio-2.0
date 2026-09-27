@@ -3,6 +3,7 @@ import gsap from "gsap";
 import emailjs from "@emailjs/browser";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 import { toast } from "../common/Toast";
+import { ShaderButtons } from "../common/ShaderButtons";
 import { BG, LIME, SURFACE, TEXT, BODY } from "../../constants/theme";
 import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, CONTACT_PHONE, CONTACT_PHONE_HREF, CONTACT_LOCATION } from "../../constants/site";
 import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from "../../constants/emailjs";
@@ -143,14 +144,9 @@ export function ContactSection() {
                 onBlur={(e) => { (e.target as HTMLElement).style.borderColor = "rgba(255,255,255,0.06)"; }}
               />
             </div>
-            <button
-              type="submit"
-              disabled={sending}
-              className="w-full py-3.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-opacity hover:opacity-85 disabled:opacity-60"
-              style={{ background: LIME, color: BG }}
-            >
+            <ShaderButtons type="submit" disabled={sending}>
               {sending ? "Sending..." : "Send Message →"}
-            </button>
+            </ShaderButtons>
           </form>
         </div>
       </div>

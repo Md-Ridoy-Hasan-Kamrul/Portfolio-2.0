@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { LIME, MINT, TEXT } from "../../constants/theme";
+import { ShaderButtons } from "../common/ShaderButtons";
 import { scrollToId, scrollToTop } from "../../hooks/useLenis";
 
 /** Liquid Gold Navbar layout: four links + enquire CTA */
@@ -171,24 +172,11 @@ export function Navbar() {
             </div>
 
             <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => go("contact")}
-                className="group cursor-pointer hidden lg:flex items-center rounded-full px-5 py-3 transition-colors duration-500"
-                style={{ background: CREAM }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = LIME;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = CREAM;
-                }}
-              >
-                <RollLabel
-                  label="Enquire"
-                  className="font-semibold uppercase text-[11px] tracking-[1.4px] text-[#14100b]"
-                  hoverClass="font-semibold uppercase text-[11px] tracking-[1.4px] text-[#120e09]"
-                />
-              </button>
+              <div className="hidden lg:block">
+                <ShaderButtons onClick={() => go("contact")}>
+                  Enquire
+                </ShaderButtons>
+              </div>
 
               <button
                 type="button"
@@ -220,7 +208,7 @@ export function Navbar() {
 
           <div
             className="lg:hidden overflow-hidden transition-[max-height] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-            style={{ maxHeight: open ? 320 : 0 }}
+            style={{ maxHeight: open ? 380 : 0 }}
           >
             <div>
               <div className="flex flex-col px-[18px] pt-1.5 pb-[26px]">
@@ -241,20 +229,12 @@ export function Navbar() {
                     {label}
                   </button>
                 ))}
-                <button
-                  type="button"
+                <ShaderButtons
                   onClick={() => go("contact")}
-                  className="cursor-pointer mt-3 self-start rounded-full px-5 py-3 font-semibold uppercase text-[11px] tracking-[1.4px] transition-colors duration-500"
-                  style={{ background: CREAM, color: "rgb(20, 16, 11)" }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = LIME;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = CREAM;
-                  }}
+                  className="mt-4 self-start"
                 >
                   Enquire
-                </button>
+                </ShaderButtons>
               </div>
             </div>
           </div>

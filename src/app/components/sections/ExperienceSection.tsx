@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { EXPERIENCE } from '../../data/experience';
-import { LIME, SURFACE, TEXT, BODY, BG } from '../../constants/theme';
+import { LIME, SURFACE, TEXT, BODY } from '../../constants/theme';
 import { CV_PDF_PATH, CV_DOWNLOAD_NAME } from '../../constants/site';
+import { ShaderButtons } from '../common/ShaderButtons';
 import { useSectionSpacing } from '../../hooks/useSectionSpacing';
 
 export function ExperienceSection() {
@@ -173,15 +174,10 @@ export function ExperienceSection() {
         </div>
 
         <div className='mt-10'>
-          <a
-            href={CV_PDF_PATH}
-            download={CV_DOWNLOAD_NAME}
-            className='inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 hover:opacity-85 hover:scale-[1.03] group'
-            style={{ background: LIME, color: BG, boxShadow: `0 4px 24px ${LIME}30` }}
-          >
+          <ShaderButtons href={CV_PDF_PATH} download={CV_DOWNLOAD_NAME}>
             Download full resume
-            <FiArrowUpRight className='w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform' />
-          </a>
+            <FiArrowUpRight className='h-4 w-4' />
+          </ShaderButtons>
         </div>
       </div>
     </section>
