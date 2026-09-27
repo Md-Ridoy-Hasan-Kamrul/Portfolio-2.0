@@ -1,4 +1,11 @@
-import { ACCENT_RGB, COLOR, FOOTER_ACCENT, MOTION, SPACE, TYPE } from "./footerTokens";
+import {
+  ACCENT_RGB,
+  COLOR,
+  FOOTER_ACCENT,
+  MOTION,
+  SPACE,
+  TYPE,
+} from './footerTokens';
 
 export function footerStyleSheet(): string {
   return `

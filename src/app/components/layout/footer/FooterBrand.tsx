@@ -52,7 +52,7 @@ export function FooterBrand({ metrics }: { metrics: FooterMetrics }) {
       >
         {FOOTER_TAGLINE}
       </p>
-      <ShaderButtons onClick={() => scrollToId(FOOTER_CTA_TARGET)}>
+      <ShaderButtons className="w-fit self-start" onClick={() => scrollToId(FOOTER_CTA_TARGET)}>
         {FOOTER_CTA_LABEL}
       </ShaderButtons>
     </div>
