@@ -1,182 +1,246 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { FiMenu, FiX, FiMail } from "react-icons/fi";
-import { BG, LIME, TEXT, BODY } from "../../constants/theme";
-import { CONTACT_EMAIL, CONTACT_EMAIL_HREF } from "../../constants/site";
 import { scrollToId, scrollToTop } from "../../hooks/useLenis";
 
-/** Same order as reference navbar: Skill → Experiences → Projects → About → Contact */
+/** Liquid Gold Navbar layout: four links + enquire CTA */
 const NAV_LINKS = [
-  { id: "skills", label: "Skill", num: "02" },
-  { id: "experience", label: "Experiences", num: "03" },
-  { id: "projects", label: "Projects", num: "04" },
-  { id: "about", label: "About", num: "05" },
-  { id: "contact", label: "Contact", num: "06" },
+  { id: "skills", label: "Skill" },
+  { id: "experience", label: "Experiences" },
+  { id: "projects", label: "Projects" },
+  { id: "about", label: "About" },
 ] as const;
 
+const CREAM = "rgb(245, 238, 224)";
+const INK = "rgb(13, 11, 9)";
+const GOLD = "rgb(212, 178, 116)";
+
+function RollLabel({
+  label,
+  className,
+  hoverClass,
+}: {
+  label: string;
+  className: string;
+  hoverClass: string;
+}) {
+  return (
+    <span className="relative block h-[11px] overflow-hidden">
+      <span className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-[11px]">
+        <span className={`block h-[11px] leading-[11px] whitespace-nowrap ${className}`}>{label}</span>
+        <span aria-hidden className={`block h-[11px] leading-[11px] whitespace-nowrap ${hoverClass}`}>{label}</span>
+      </span>
+    </span>
+  );
+}
+
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
-  const linksRef = useRef<HTMLDivElement>(null);
-  const tagRef = useRef<HTMLSpanElement>(null);
+  const shellRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", fn);
-    gsap.fromTo(navRef.current, { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 0.3 });
-    gsap.fromTo(tagRef.current, { yPercent: 110 }, { yPercent: 0, duration: 0.8, ease: "power4.out", delay: 0.5 });
-    return () => window.removeEventListener("scroll", fn);
+    gsap.fromTo(
+      navRef.current,
+      { y: -28, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.9, ease: "power3.out", delay: 0.35 }
+    );
   }, []);
 
   useEffect(() => {
-    if (!linksRef.current) return;
-    const items = linksRef.current.children;
-    if (open) {
-      gsap.fromTo(items, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.06, ease: "power3.out", delay: 0.1 });
-    } else {
-      gsap.set(items, { opacity: 0, y: 16 });
-    }
-  }, [open]);
+    const onResize = () => {
+      if (window.innerWidth >= 1024) setOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--gx", `${e.clientX - r.left}px`);
+    e.currentTarget.style.setProperty("--gy", `${e.clientY - r.top}px`);
+  };
 
   const go = (id: string) => {
     setOpen(false);
     scrollToId(id);
   };
 
-  const linkBtn = (id: string, label: string, className = "") => (
-    <button
-      key={id}
-      type="button"
-      onClick={() => go(id)}
-      className={`cursor-pointer text-sm font-medium tracking-wide transition-colors duration-200 ${className}`}
-      style={{ color: TEXT }}
-      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = LIME; }}
-      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = TEXT; }}
-    >
-      {label}
-    </button>
-  );
+  const radius = open ? 31 : 100;
 
   return (
     <nav
       ref={navRef}
-      className="fixed top-0 inset-x-0 z-50 transition-all duration-500"
-      style={{
-        background: scrolled ? `${BG}e8` : "transparent",
-        backdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.04)" : "none",
-        opacity: 0,
-      }}
+      className="fixed top-4 sm:top-5 inset-x-0 z-50 flex justify-center px-3 sm:px-4"
+      style={{ opacity: 0 }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative flex items-center justify-between py-5">
-        {/* Logo — MR lime, HK white, kamrul.dev mono */}
-        <button
-          type="button"
-          onClick={() => scrollToTop()}
-          className="cursor-pointer flex items-center gap-2 shrink-0 z-10"
-          style={{ color: TEXT }}
-        >
-          <span className="font-['Clash_Display'] font-semibold text-xl tracking-tight leading-none">
-            <span style={{ color: LIME }}>MR</span>
-            <span style={{ color: TEXT }}>HK</span>
-          </span>
-          <span className="hidden sm:inline-block overflow-hidden">
-            <span ref={tagRef} className="inline-block font-mono text-xs tracking-widest" style={{ color: BODY }}>
-              kamrul.dev
-            </span>
-          </span>
-        </button>
+      <style>{`
+        @keyframes lg-gold-spin {
+          from { transform: translate(-50%, -50%) rotate(0deg); }
+          to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        .lg-gold-spin {
+          animation: lg-gold-spin 8s linear infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .lg-gold-spin { animation: none; }
+        }
+      `}</style>
 
-        {/* Center nav — portfolio section flow */}
-        <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-8 lg:gap-10 xl:gap-14">
-          {NAV_LINKS.map(({ id, label }) => linkBtn(id, label))}
-        </div>
-
-        {/* Email pill */}
-        <a
-          href={CONTACT_EMAIL_HREF}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cursor-pointer hidden md:flex items-center shrink-0 z-10 text-xs lg:text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 whitespace-nowrap"
-          style={{ color: TEXT, border: "1px solid rgba(255,255,255,0.12)" }}
-          onMouseEnter={(e) => {
-            const el = e.currentTarget as HTMLElement;
-            el.style.borderColor = `${LIME}50`;
-            el.style.color = LIME;
-          }}
-          onMouseLeave={(e) => {
-            const el = e.currentTarget as HTMLElement;
-            el.style.borderColor = "rgba(255,255,255,0.12)";
-            el.style.color = TEXT;
-          }}
-        >
-          {CONTACT_EMAIL}
-        </a>
-
-        <button type="button" className="md:hidden z-10 cursor-pointer" onClick={() => setOpen(!open)} style={{ color: TEXT }}>
-          {open ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
-        </button>
-      </div>
-
-      {/* Mobile menu — same section order */}
       <div
-        className="md:hidden grid"
-        style={{ gridTemplateRows: open ? "1fr" : "0fr", transition: "grid-template-rows 300ms ease" }}
+        ref={shellRef}
+        onMouseMove={onMove}
+        className="relative w-full max-w-[700px] p-[2px] overflow-hidden transition-[border-radius] duration-500"
+        style={{
+          borderRadius: radius,
+          background: "linear-gradient(180deg, rgb(122, 82, 37) 0%, rgb(58, 39, 18) 55%, rgb(138, 90, 43) 100%)",
+          boxShadow: "0px 14px 60px 0px rgba(201, 164, 92, 0.3), 0px 2px 12px 0px rgba(0, 0, 0, 0.35)",
+          ["--gx" as string]: "50%",
+          ["--gy" as string]: "0px",
+        }}
       >
-        <div style={{ overflow: "hidden", minHeight: 0 }}>
+        <div
+          className="lg-gold-spin pointer-events-none absolute left-1/2 top-1/2 h-[240%] w-[240%]"
+          style={{
+            background:
+              "conic-gradient(from 0deg, rgb(110, 66, 24), rgb(138, 90, 43), rgb(201, 164, 92), rgb(245, 229, 192), rgb(224, 179, 106), rgb(201, 164, 92), rgb(138, 90, 43), rgb(110, 66, 24))",
+          }}
+        />
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(110px circle at var(--gx) var(--gy), rgba(245, 229, 192, 0.95), transparent 62%)",
+          }}
+        />
+
+        <div
+          className="relative z-[1] overflow-hidden transition-[border-radius] duration-500"
+          style={{ background: INK, borderRadius: open ? 29 : 100 }}
+        >
           <div
-            ref={linksRef}
-            className="px-4 sm:px-6 py-8 flex flex-col items-center gap-2 border-t"
-            style={{ background: BG, borderColor: "rgba(255,255,255,0.05)" }}
-          >
-            {NAV_LINKS.map(({ id, label, num }) => (
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(120px 36px at var(--gx) 0px, rgba(224, 179, 106, 0.34), transparent 70%)",
+            }}
+          />
+
+          <div className="relative flex items-center justify-between min-h-[60px] pl-6 lg:pl-7 pr-2.5 py-2.5">
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                scrollToTop();
+              }}
+              className="cursor-pointer shrink-0"
+              aria-label="Back to top"
+            >
+              <span
+                className="block select-none italic font-medium text-[22px] lg:text-[24px] leading-none"
+                style={{ fontFamily: '"Bodoni Moda", serif', color: CREAM }}
+              >
+                MRHK
+              </span>
+            </button>
+
+            <div className="hidden lg:flex items-center gap-1.5">
+              {NAV_LINKS.map(({ id, label }) => (
+                <button
+                  key={id}
+                  type="button"
+                  onClick={() => go(id)}
+                  className="group cursor-pointer px-2.5 py-3.5"
+                >
+                  <RollLabel
+                    label={label}
+                    className="font-medium uppercase text-[11px] tracking-[1.6px] text-[rgba(245,238,224,0.55)]"
+                    hoverClass="font-medium uppercase text-[11px] tracking-[1.6px] text-[#fffaf0]"
+                  />
+                </button>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2">
               <button
-                key={id}
                 type="button"
-                onClick={() => go(id)}
-                className="cursor-pointer flex items-center gap-3 px-6 py-3 rounded-full text-xl font-medium tracking-wide transition-all duration-300"
-                style={{ color: BODY, opacity: 0 }}
+                onClick={() => go("contact")}
+                className="group cursor-pointer hidden lg:flex items-center rounded-full px-5 py-3 transition-colors duration-500"
+                style={{ background: CREAM }}
                 onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.color = LIME;
-                  el.style.background = `${LIME}12`;
-                  el.style.transform = "scale(1.06)";
+                  e.currentTarget.style.background = GOLD;
                 }}
                 onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.color = BODY;
-                  el.style.background = "transparent";
-                  el.style.transform = "scale(1)";
+                  e.currentTarget.style.background = CREAM;
                 }}
               >
-                <span className="font-mono text-xs" style={{ color: LIME }}>
-                  {num}
-                </span>
-                {label}
+                <RollLabel
+                  label="Enquire"
+                  className="font-semibold uppercase text-[11px] tracking-[1.4px] text-[#14100b]"
+                  hoverClass="font-semibold uppercase text-[11px] tracking-[1.4px] text-[#120e09]"
+                />
               </button>
-            ))}
-            <a
-              href={CONTACT_EMAIL_HREF}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
-              className="cursor-pointer flex items-center gap-2 mt-4 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300"
-              style={{ color: TEXT, border: "1px solid rgba(255,255,255,0.12)", opacity: 0 }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = `${LIME}50`;
-                el.style.color = LIME;
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "rgba(255,255,255,0.12)";
-                el.style.color = TEXT;
-              }}
-            >
-              <FiMail className="w-4 h-4" />
-              {CONTACT_EMAIL}
-            </a>
+
+              <button
+                type="button"
+                className="lg:hidden relative cursor-pointer w-10 h-10 rounded-full"
+                aria-label={open ? "Close menu" : "Open menu"}
+                aria-expanded={open}
+                onClick={() => setOpen((v) => !v)}
+                style={{ background: open ? "rgba(245, 238, 224, 0.14)" : "rgba(245, 238, 224, 0.08)" }}
+              >
+                <span
+                  className="absolute left-3 h-0.5 w-4 rounded-sm origin-center transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  style={{
+                    background: CREAM,
+                    top: 19,
+                    transform: open ? "rotate(45deg)" : "translateY(-3px)",
+                  }}
+                />
+                <span
+                  className="absolute left-3 h-0.5 w-4 rounded-sm origin-center transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  style={{
+                    background: CREAM,
+                    top: 19,
+                    transform: open ? "rotate(-45deg)" : "translateY(3px)",
+                  }}
+                />
+              </button>
+            </div>
+          </div>
+
+          <div
+            className="lg:hidden overflow-hidden transition-[max-height] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+            style={{ maxHeight: open ? 320 : 0 }}
+          >
+            <div>
+              <div className="flex flex-col px-[18px] pt-1.5 pb-[26px]">
+                {NAV_LINKS.map(({ id, label }) => (
+                  <button
+                    key={id}
+                    type="button"
+                    onClick={() => go(id)}
+                    className="cursor-pointer py-2.5 text-left font-medium uppercase text-[15px] tracking-[1.4px] transition-colors duration-300"
+                    style={{ color: "rgba(245, 238, 224, 0.6)" }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = "#fffaf0";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = "rgba(245, 238, 224, 0.6)";
+                    }}
+                  >
+                    {label}
+                  </button>
+                ))}
+                <button
+                  type="button"
+                  onClick={() => go("contact")}
+                  className="cursor-pointer mt-3 self-start rounded-full px-5 py-3 font-semibold uppercase text-[11px] tracking-[1.4px]"
+                  style={{ background: CREAM, color: "rgb(20, 16, 11)" }}
+                >
+                  Enquire
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
