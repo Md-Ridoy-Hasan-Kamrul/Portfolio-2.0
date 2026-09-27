@@ -54,10 +54,10 @@ export default function App() {
       <main className="relative z-10" style={{ background: BG, marginBottom: footerHeight }}>
         <HeroSection />
         <MarqueeStrip />
-        <SkillsSection />
         <ExperienceSection />
-        <ProjectsSection />
         <AboutSection />
+        <SkillsSection />
+        <ProjectsSection />
         <ContactSection />
         <div ref={footerEndRef} />
       </main>

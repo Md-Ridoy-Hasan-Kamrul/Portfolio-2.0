@@ -3,9 +3,9 @@ import { LIME } from "../constants/theme";
 export const EXPERIENCE = [
   {
     num: "01",
-    role: "Front-End Developer",
+    role: "Frontend Developer",
     company: "Maktech",
-    period: "Jan 2025 — Present",
+    period: "Jan 2025 – Present",
     color: LIME,
     bullets: [
       "Managed the end-to-end frontend development lifecycle for diverse international clients, translating complex Figma designs into responsive, production-ready web applications.",

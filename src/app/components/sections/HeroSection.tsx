@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { FiArrowUpRight, FiBox } from "react-icons/fi";
-import { SiReact, SiNextdotjs, SiJavascript, SiTailwindcss, SiTypescript, SiRedux, SiAstro, SiSvelte, SiReactquery } from "react-icons/si";
+import { FiArrowUpRight } from "react-icons/fi";
+import { SiReact, SiNextdotjs, SiTailwindcss, SiTypescript, SiRedux, SiGreensock } from "react-icons/si";
 import { ShaderButtons } from "../common/ShaderButtons";
 import { BG, LIME, MINT, SURFACE, TEXT, BODY } from "../../constants/theme";
 import { CV_PDF_PATH, CV_DOWNLOAD_NAME } from "../../constants/site";
@@ -73,8 +73,8 @@ export function HeroSection() {
         <div className="col-span-12 lg:col-span-7">
           <div className="flex items-center gap-3 mb-12">
             <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: LIME }} />
-            <span className="font-mono text-xs font-bold tracking-[0.32em] uppercase" style={{ color: BODY }}>
-              Available for freelance · Dhaka, Bangladesh
+            <span className="font-mono text-xs font-bold tracking-[0.28em] uppercase" style={{ color: BODY }}>
+              Open to remote roles · Dhaka, Bangladesh
             </span>
           </div>
 
@@ -101,9 +101,9 @@ export function HeroSection() {
             ))}
           </div>
 
-          <p ref={subRef} className="text-base sm:text-lg leading-relaxed max-w-md mb-9" style={{ color: BODY, opacity: 0 }}>
-            Front-End Developer specializing in the MERN stack building responsive,
-            user-friendly web applications with React, Next.js & modern web technologies.
+          <p ref={subRef} className="text-base sm:text-lg leading-relaxed max-w-xl mb-9" style={{ color: BODY, opacity: 0 }}>
+            Frontend Developer specializing in React.js, Next.js, TypeScript, and JavaScript.
+            I build responsive, production-ready interfaces with Tailwind CSS, Redux, and RESTful APIs.
           </p>
 
           <div ref={ctaRef} className="flex flex-wrap gap-4" style={{ opacity: 0 }}>
@@ -116,7 +116,7 @@ export function HeroSection() {
           </div>
 
           <div ref={statsRef} className="flex gap-10 mt-12 pt-12" style={{ borderTop: "1px solid rgba(255,255,255,0.05)", opacity: 0 }}>
-            {[["1.9+", "Years exp."], ["50+", "Projects"], ["B.Sc", "CSE · UITS"]].map(([v, l]) => (
+            {[["2025", "Maktech"], ["7", "Live products"], ["B.Sc", "CSE · UITS"]].map(([v, l]) => (
               <div key={l}>
                 <div className="font-['Clash_Display'] font-semibold text-3xl" style={{ color: TEXT }}>{v}</div>
                 <div className="text-xs mt-1" style={{ color: BODY }}>{l}</div>
@@ -150,16 +150,12 @@ export function HeroSection() {
             </div>
 
             {[
-              { icon: SiAstro,      label: "Astro",      color: "#FF5D01", cls: "-top-3 left-6",       rot: -8 },
-              { icon: SiSvelte,     label: "Svelte",     color: "#FF3E00", cls: "-top-3 right-6",      rot: 7 },
-              { icon: SiReact,      label: "React",      color: "#61DAFB", cls: "top-6 -left-20",      rot: -6 },
-              { icon: SiNextdotjs,  label: "Next.js",    color: TEXT,      cls: "top-28 -left-24",     rot: 5 },
-              { icon: SiJavascript, label: "JavaScript",  color: "#F7DF1E", cls: "bottom-36 -left-20",  rot: -4 },
-              { icon: SiTailwindcss,label: "Tailwind",   color: "#06B6D4", cls: "top-14 -right-20",    rot: 6 },
-              { icon: SiRedux,      label: "Redux",      color: "#764ABC", cls: "top-40 -right-24",    rot: -5 },
-              { icon: SiTypescript, label: "TypeScript",  color: "#3178C6", cls: "bottom-24 -right-24", rot: 4 },
-              { icon: SiReactquery, label: "TanStack",   color: "#FF4154", cls: "-bottom-3 left-4",    rot: 8 },
-              { icon: FiBox,        label: "Zustand",    color: "#F59E0B", cls: "-bottom-3 right-4",   rot: -7 },
+              { icon: SiReact, label: "React", color: "#61DAFB", cls: "top-8 -left-16", rot: -6 },
+              { icon: SiNextdotjs, label: "Next.js", color: TEXT, cls: "top-32 -left-20", rot: 5 },
+              { icon: SiTypescript, label: "TypeScript", color: "#3178C6", cls: "bottom-28 -left-16", rot: -4 },
+              { icon: SiTailwindcss, label: "Tailwind", color: "#06B6D4", cls: "top-16 -right-16", rot: 6 },
+              { icon: SiGreensock, label: "GSAP", color: "#88CE02", cls: "bottom-36 -right-14", rot: -5 },
+              { icon: SiRedux, label: "Redux", color: "#764ABC", cls: "-bottom-2 right-8", rot: 4 },
             ].map(({ icon: Icon, label, color, cls, rot }) => (
               <div
                 key={label}

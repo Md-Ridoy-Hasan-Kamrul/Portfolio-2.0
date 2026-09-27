@@ -1,7 +1,7 @@
 import { LIME, BODY } from "../../constants/theme";
 
 export function MarqueeStrip() {
-  const items = ["React", "TypeScript", "Next.js", "GSAP", "Figma", "WebGL", "Node.js", "GraphQL", "TailwindCSS", "Three.js", "Docker", "PostgreSQL"];
+  const items = ["React.js", "Next.js", "TypeScript", "Vue.js", "Tailwind CSS", "GSAP", "Lenis", "Framer", "Redux", "Figma", "Vite", "Vercel"];
 
   return (
     <div className="overflow-hidden flex" style={{ borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)", padding: "14px 0" }}>

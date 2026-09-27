@@ -6,10 +6,10 @@ import { scrollToId, scrollToTop } from "../../hooks/useLenis";
 
 /** Liquid Gold Navbar layout: four links + enquire CTA */
 const NAV_LINKS = [
-  { id: "skills", label: "Skill" },
   { id: "experience", label: "Experiences" },
+  { id: "about", label: "Education" },
+  { id: "skills", label: "Skill" },
   { id: "projects", label: "Projects" },
-  { id: "about", label: "About" },
 ] as const;
 
 const CREAM = "rgb(245, 238, 224)";

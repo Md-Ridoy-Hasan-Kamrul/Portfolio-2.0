@@ -212,7 +212,7 @@ export function ProjectsSection() {
     <section ref={sRef} id="projects" className="relative" style={{ paddingTop: py, paddingBottom: py }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-5" style={{ marginBottom: mb }}>
-          <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: LIME }}>04 / Projects</span>
+          <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: LIME }}>05 / Projects</span>
           <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
         </div>
 

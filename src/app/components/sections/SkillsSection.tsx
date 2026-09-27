@@ -47,7 +47,7 @@ export function SkillsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-5" style={{ marginBottom: mb }}>
           <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: LIME }}>
-            02 / Skills
+            04 / Skills
           </span>
           <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
         </div>
@@ -61,8 +61,7 @@ export function SkillsSection() {
               Technical <span style={{ color: LIME }}>expertise</span>
             </h2>
             <p className="mt-4 text-base sm:text-lg leading-relaxed max-w-xl" style={{ color: BODY }}>
-              Production-ready frontend stack used across live client projects
-              from UI architecture to deployment.
+              The same groups as the resume, from interface work through testing and deployment.
             </p>
           </div>
           <div className="hidden lg:flex flex-col items-end gap-1">
@@ -155,6 +154,18 @@ export function SkillsSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div
+          className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 rounded-2xl px-5 py-4"
+          style={{ background: SURFACE, border: "1px solid rgba(255,255,255,0.06)" }}
+        >
+          <span className="font-mono text-xs tracking-[0.28em] uppercase" style={{ color: LIME }}>
+            Certification
+          </span>
+          <span className="text-sm sm:text-base" style={{ color: TEXT }}>
+            MERN Stack, Ostad <span style={{ color: BODY }}>· 2024</span>
+          </span>
         </div>
       </div>
     </section>

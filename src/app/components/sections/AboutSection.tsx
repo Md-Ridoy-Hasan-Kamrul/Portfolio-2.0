@@ -56,7 +56,7 @@ export function AboutSection() {
             className='font-mono text-xs tracking-[0.3em] uppercase'
             style={{ color: LIME }}
           >
-            05 / About
+            03 / Education
           </span>
           <div
             className='flex-1 h-px'
@@ -70,15 +70,15 @@ export function AboutSection() {
               className="font-['Clash_Display'] font-semibold leading-tight text-3xl sm:text-4xl lg:text-5xl"
               style={{ color: TEXT }}
             >
-              "I build web experiences that don't just function{' '}
-              <span style={{ color: LIME }}>they feel inevitable.</span>"
+              Frontend Developer specializing in{" "}
+              <span style={{ color: LIME }}>React.js, Next.js, and TypeScript.</span>
             </h2>
 
             <div className='mt-10 grid grid-cols-3 gap-4'>
               {[
-                ['1.9+', 'Years'],
-                ['50+', 'Projects'],
-                ['UITS', 'B.Sc CSE'],
+                ['2025', 'Maktech'],
+                ['7', 'Live products'],
+                ['2022', 'B.Sc CSE'],
               ].map(([v, l]) => (
                 <div
                   key={l}
@@ -103,9 +103,9 @@ export function AboutSection() {
 
             <div className='mt-10 space-y-3'>
               {[
-                'Front-End Developer at Maktech',
-                'B.Sc in CSE, UITS Dhaka, Graduated in 2022',
-                'Open to freelance & full-time opportunities globally',
+                'B.Sc in CSE, University of Information Technology and Sciences (UITS), 2022',
+                'H.S.C, Shaheed Ramiz Uddin Cantonment College (SRCC), 2016',
+                'S.S.C, Govt. Kalachandpur High School and College, 2014',
               ].map((item) => (
                 <div key={item} className='flex items-start gap-3'>
                   <span
@@ -159,7 +159,7 @@ export function AboutSection() {
                 {
                   year: '2014',
                   degree: 'S.S.C',
-                  school: 'Govt. Kalachandpur High School & College (GKHSC)',
+                  school: 'Govt. Kalachandpur High School and College',
                 },
               ].map((e) => (
                 <div key={e.year} className='flex items-start gap-4'>

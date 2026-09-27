@@ -99,7 +99,7 @@ export function Footer({ footerRef }: { footerRef: React.RefObject<HTMLElement> 
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-3 pt-7" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
           <p className="font-mono text-xs tracking-widest uppercase" style={{ color: BODY }}>
-            Front-End Developer · MERN Stack
+            Frontend Developer · React.js · Next.js · TypeScript
           </p>
           <p className="text-xs" style={{ color: BODY }}>
             © {new Date().getFullYear()} Md. Ridoy Hasan Kamrul. All rights reserved.
