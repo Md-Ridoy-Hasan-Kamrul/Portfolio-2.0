@@ -6,6 +6,7 @@ import { ShaderButtons } from "../common/ShaderButtons";
 import { BG, LIME, MINT, SURFACE, TEXT, BODY } from "../../constants/theme";
 import { CV_PDF_PATH, CV_DOWNLOAD_NAME } from "../../constants/site";
 import { scrollToId } from "../../hooks/useLenis";
+import { careerStats } from "../../utils/careerStats";
 import developerPhoto from "../../../imports/Gemini_Generated_Image_hkis8khkis8khkis.png";
 
 export function HeroSection() {
@@ -116,7 +117,7 @@ export function HeroSection() {
           </div>
 
           <div ref={statsRef} className="flex gap-10 mt-12 pt-12" style={{ borderTop: "1px solid rgba(255,255,255,0.05)", opacity: 0 }}>
-            {[["2025", "Maktech"], ["7", "Live products"], ["B.Sc", "CSE · UITS"]].map(([v, l]) => (
+            {careerStats().map(([v, l]) => (
               <div key={l}>
                 <div className="font-['Clash_Display'] font-semibold text-3xl" style={{ color: TEXT }}>{v}</div>
                 <div className="text-xs mt-1" style={{ color: BODY }}>{l}</div>

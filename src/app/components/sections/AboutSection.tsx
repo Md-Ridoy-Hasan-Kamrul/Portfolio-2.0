@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { LIME, SURFACE, TEXT, BODY } from '../../constants/theme';
 import { useSectionSpacing } from '../../hooks/useSectionSpacing';
+import { careerStats } from '../../utils/careerStats';
 
 export function AboutSection() {
   const sRef = useRef<HTMLElement>(null);
@@ -75,11 +76,7 @@ export function AboutSection() {
             </h2>
 
             <div className='mt-10 grid grid-cols-3 gap-4'>
-              {[
-                ['2025', 'Maktech'],
-                ['7', 'Live products'],
-                ['2022', 'B.Sc CSE'],
-              ].map(([v, l]) => (
+              {careerStats().map(([v, l]) => (
                 <div
                   key={l}
                   className='p-5 rounded-2xl'
