@@ -77,7 +77,16 @@ export const PROJECTS = [
     live: "https://astro-svelte-cyan.vercel.app/", github: "#", accent: MINT,
   },
   {
-    num: "09", title: "M19 Logistics", sub: "Courier & Delivery",
+    num: "09", title: "Astro Vue", sub: "",
+    category: "Business & Web",
+    caption: "Digital Product Landing · Astro + Vue",
+    desc: "Studio-style business landing designed and built from scratch — no Figma file. Scroll-driven 3D motion, WebGL, and Vue islands on a fast Astro page.",
+    tags: ["Astro", "Vue 3", "TypeScript", "Three.js", "Lenis"],
+    img: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=1400&h=780&fit=crop&auto=format",
+    live: "https://astro-vue-js.vercel.app", github: "#", accent: "#42B883",
+  },
+  {
+    num: "10", title: "M19 Logistics", sub: "Courier & Delivery",
     category: "Business & Web",
     caption: "Logistics Evolved · Delivery Delivered",
     desc: "UK & Europe logistics platform offering rapid same-day delivery, specialist transport, and end-to-end supply chain solutions. Built for a Wrexham-founded courier company handling nationwide parcel delivery, secure item handling, and scheduled multi-drop routes for e-commerce businesses and individuals.",
@@ -86,7 +95,7 @@ export const PROJECTS = [
     live: "https://m19logistics.com/", github: "#", accent: "#38BDF8",
   },
   {
-    num: "10", title: "Property-File", sub: "Property Intelligence",
+    num: "11", title: "Property-File", sub: "Property Intelligence",
     category: "Real Estate",
     caption: "Market Visibility · Real Estate Exchange",
     desc: "Property intelligence platform covering Nigeria's real estate sector news, market analysis, developer and development tracking, and regulatory insight that gives buyers and investors clearer visibility into pricing and opportunity.",
@@ -95,7 +104,7 @@ export const PROJECTS = [
     live: "https://property-file.com", github: "#", accent: "#34D399",
   },
   {
-    num: "11", title: "Q Global Living", sub: "Real Estate Platform",
+    num: "12", title: "Q Global Living", sub: "Real Estate Platform",
     category: "Real Estate",
     caption: "Full-Stack Marketplace · Next.js 16",
     desc: "Full-stack real estate marketplace with internationalization (EN/FR), property listings, event registration, admin dashboards, and escrow-protected transactions. React Compiler compliant with custom auth flows for admin/client/partner roles.",
