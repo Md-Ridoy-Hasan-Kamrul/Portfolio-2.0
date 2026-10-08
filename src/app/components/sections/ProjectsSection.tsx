@@ -7,6 +7,10 @@ import { useSectionSpacing } from "../../hooks/useSectionSpacing";
 
 type Project = (typeof PROJECTS)[number];
 
+function isLiveShot(src: string) {
+  return !/^https?:\/\//.test(src);
+}
+
 function handleTiltMove(e: React.MouseEvent<HTMLDivElement>) {
   const card = e.currentTarget;
   const rect = card.getBoundingClientRect();
@@ -84,11 +88,19 @@ function ProjectModal({
             src={project.img}
             alt={project.title}
             className="w-full h-full object-cover"
-            style={{ filter: "saturate(0.7) brightness(0.72)" }}
+            style={
+              isLiveShot(project.img)
+                ? { objectPosition: "center 38%" }
+                : { filter: "saturate(0.7) brightness(0.72)" }
+            }
           />
           <div
             className="absolute inset-0"
-            style={{ background: `linear-gradient(to bottom, transparent 30%, ${SURFACE})` }}
+            style={{
+              background: isLiveShot(project.img)
+                ? `linear-gradient(to bottom, transparent 55%, ${SURFACE})`
+                : `linear-gradient(to bottom, transparent 30%, ${SURFACE})`,
+            }}
           />
           <div
             className="absolute top-4 left-5 font-mono text-xs tracking-widest"
@@ -271,9 +283,20 @@ export function ProjectsSection() {
                 <img
                   src={p.img} alt={p.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  style={{ filter: "saturate(0.65) brightness(0.75)" }}
+                  style={
+                    isLiveShot(p.img)
+                      ? { objectPosition: "center 38%" }
+                      : { filter: "saturate(0.65) brightness(0.75)" }
+                  }
                 />
-                <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, transparent 35%, ${SURFACE})` }} />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: isLiveShot(p.img)
+                      ? `linear-gradient(to bottom, transparent 60%, ${SURFACE})`
+                      : `linear-gradient(to bottom, transparent 35%, ${SURFACE})`,
+                  }}
+                />
 
                 <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "rgba(6,6,12,0.6)" }}>
                   <a

@@ -82,7 +82,7 @@ export const PROJECTS = [
     caption: "Digital Product Landing · Astro + Vue",
     desc: "Studio-style business landing designed and built from scratch no Figma file. Scroll-driven 3D motion, WebGL, and Vue islands on a fast Astro page.",
     tags: ["Astro", "Vue 3", "TypeScript", "Three.js", "Lenis"],
-    img: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=1400&h=780&fit=crop&auto=format",
+    img: `${import.meta.env.BASE_URL}projects/astro-vue-hero.png`,
     live: "https://astro-vue-js.vercel.app", github: "#", accent: "#42B883",
   },
   {
