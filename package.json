@@ -4,9 +4,9 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "vite build",
+    "build": "node init && vite build",
     "test": "vitest run",
-    "dev": "vite",
+    "dev": "node init && vite",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
