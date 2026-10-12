@@ -42,25 +42,27 @@ export default function App() {
   }, []);
 
   return (
-    <div style={{ background: BG, color: TEXT, minHeight: "100vh", overflowX: "hidden" }}>
+    <>
       {!loaded && <LoadingScreen onDone={() => setLoaded(true)} />}
-      <GrainOverlay />
-      <CustomCursor />
-      <Toaster />
-      <SocialSidebar />
-      <Navbar />
-      <WhatsAppFAB hideForFooter={footerVisible} />
-      <main className="relative z-10" style={{ background: BG, marginBottom: footerHeight }}>
-        <HeroSection />
-        <MarqueeStrip />
-        <ExperienceSection />
-        <AboutSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <ContactSection />
-        <div ref={footerEndRef} />
-      </main>
-      <Footer footerRef={footerRef} />
-    </div>
+      <div style={{ background: BG, color: TEXT, minHeight: "100vh", overflowX: "hidden" }}>
+        <GrainOverlay />
+        <CustomCursor />
+        <Toaster />
+        <SocialSidebar />
+        <Navbar />
+        <WhatsAppFAB hideForFooter={footerVisible} />
+        <main className="relative z-10" style={{ background: BG, marginBottom: footerHeight }}>
+          <HeroSection />
+          <MarqueeStrip />
+          <ExperienceSection />
+          <AboutSection />
+          <SkillsSection />
+          <ProjectsSection />
+          <ContactSection />
+          <div ref={footerEndRef} />
+        </main>
+        <Footer footerRef={footerRef} />
+      </div>
+    </>
   );
 }

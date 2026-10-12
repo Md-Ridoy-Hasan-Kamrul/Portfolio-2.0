@@ -38,7 +38,7 @@ export function FooterView({
   width,
   year = new Date().getFullYear(),
 }: {
-  footerRef: React.RefObject<HTMLElement>;
+  footerRef: React.RefObject<HTMLElement | null>;
   width: number;
   year?: number;
 }) {

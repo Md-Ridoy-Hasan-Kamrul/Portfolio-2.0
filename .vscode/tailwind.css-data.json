@@ -1,0 +1,37 @@
+{
+  "version": 1.1,
+  "atDirectives": [
+    {
+      "name": "@custom-variant",
+      "description": "Tailwind CSS v4 at-rule that defines a custom variant, such as class-based dark mode."
+    },
+    {
+      "name": "@theme",
+      "description": "Tailwind CSS v4 at-rule that defines design tokens for the theme."
+    },
+    {
+      "name": "@apply",
+      "description": "Tailwind CSS at-rule that inlines utility classes into a rule."
+    },
+    {
+      "name": "@source",
+      "description": "Tailwind CSS v4 at-rule that sets which files are scanned for class names."
+    },
+    {
+      "name": "@utility",
+      "description": "Tailwind CSS v4 at-rule that defines a custom utility."
+    },
+    {
+      "name": "@variant",
+      "description": "Tailwind CSS v4 at-rule that applies a variant to a rule."
+    },
+    {
+      "name": "@plugin",
+      "description": "Tailwind CSS v4 at-rule that loads a plugin."
+    },
+    {
+      "name": "@reference",
+      "description": "Tailwind CSS v4 at-rule that imports theme and utility definitions without emitting CSS."
+    }
+  ]
+}
