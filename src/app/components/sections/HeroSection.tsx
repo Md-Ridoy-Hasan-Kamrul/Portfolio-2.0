@@ -7,7 +7,7 @@ import { BG, LIME, MINT, SURFACE, TEXT, BODY } from "../../constants/theme";
 import { CV_PDF_PATH, CV_DOWNLOAD_NAME } from "../../constants/site";
 import { scrollToId } from "../../hooks/useLenis";
 import { careerStats } from "../../utils/careerStats";
-import developerPhoto from "../../../imports/Gemini_Generated_Image_hkis8khkis8khkis.png";
+import developerPhoto from "../../../imports/Profile.png";
 
 export function HeroSection() {
   const [spot, setSpot] = useState({ x: -9999, y: -9999 });
